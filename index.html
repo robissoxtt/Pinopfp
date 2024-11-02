@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pino PFP Generator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Barriecito &display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Pino PFP Generator</h1>
+    
+    <div class="avatar-display" id="avatar-display">
+      <img id="avatar-image" src="images/default/default_pino.png" alt="Avatar">
+    </div>
+    
+    <div class="buttons">
+      
+      <button id="generate-btn">RANDOMIZE</button>
+      <button id="default-btn">RESET</button>
+      <button id="download-btn">DOWNLOAD</button>
+    </div>
+    
+    <div class="customization">
+      <h2>CUSTOMIZE YOUR $PINO</h2>
+      
+      <!-- Hats options -->
+      <div class="options hats">
+        <h3>Hats</h3>
+        <button class="hats-option" data-img="hat1.png" title="Hat 1"><img src="images/hats/hat1.png" alt="Hat 1"></button>
+        <button class="hats-option" data-img="hat2.png" title="Hat 2"><img src="images/hats/hat2.png" alt="Hat 2"></button>
+        <button class="hats-option" data-img="hat3.png" title="Hat 3"><img src="images/hats/hat3.png" alt="Hat 3"></button>
+      </div>
+      
+      <!-- Glasses options -->
+      <div class="options glasses">
+        <h3>EYES</h3>
+        <button class="glasses-option" data-img="glasses1.png" title="Glasses 1"><img src="images/glasses/glasses1.png" alt="Glasses 1"></button>
+        <button class="glasses-option" data-img="glasses2.png" title="Glasses 2"><img src="images/glasses/glasses2.png" alt="Glasses 2"></button>
+        <button class="glasses-option" data-img="glasses3.png" title="Glasses 3"><img src="images/glasses/glasses3.png" alt="Glasses 3"></button>
+      </div>
+      
+      <!-- Clothes options -->
+      <div class="options clothes">
+        <h3>Clothes</h3>
+        <button class="clothes-option" data-img="clothes1.png" title="Clothes 1"><img src="images/clothes/clothes1.png" alt="Clothes 1"></button>
+        <button class="clothes-option" data-img="clothes2.png" title="Clothes 2"><img src="images/clothes/clothes2.png" alt="Clothes 2"></button>
+        <button class="clothes-option" data-img="clothes3.png" title="Clothes 3"><img src="images/clothes/clothes3.png" alt="Clothes 3"></button>
+      </div>
+      
+      <!-- Background options -->
+      <div class="options background">
+        <h3>BackgroundS</h3>
+        <button class="background-option" data-img="background1.png" title="Background 1"><img src="images/backgrounds/background1.png" alt="Background 1"></button>
+        <button class="background-option" data-img="background2.png" title="Background 2"><img src="images/backgrounds/background2.png" alt="Background 2"></button>
+        <button class="background-option" data-img="background3.png" title="Background 3"><img src="images/backgrounds/background3.png" alt="Background 3"></button>
+        <button class="background-option" data-img="background4.png" title="background 4"><img src="images/backgrounds/background4.png" alt="background 4"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Library html2canvas for image download -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

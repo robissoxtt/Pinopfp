@@ -1,0 +1,121 @@
+body {
+  font-family: "Bangers", serif;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  background-color: #f9f9f9;
+}
+
+.container {
+  text-align: center;
+}
+
+.avatar-display {
+  width: 500px;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  margin: 20px auto;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Camada de fundo */
+#background-layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0; /* Garante que o background fique atrás */
+}
+
+/* Camadas de acessórios */
+#avatar-image, .layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  z-index: 1; /* Garante que o avatar e acessórios fiquem acima do background */
+}
+
+
+.layer {
+  z-index: 2;
+}
+/* Icone do corpo padrão para os botões de acessório */
+.options button {
+  width: 80px;
+  height: 80px;
+  border: 2px solid #ddd;
+  margin: 5px;
+  cursor: pointer;
+  background-image: url('images/default/default_pino.png'); /* Corpo padrão */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  box-shadow: -4px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Imagens de acessórios dentro dos botões */
+.options button img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1; /* Garante que os acessórios fiquem acima do corpo padrão */
+}
+
+
+button {
+  padding: 10px 15px;
+  margin: 10px 5px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.1s;
+}
+
+#generate-btn {
+   font-family: "Bangers", serif;
+  font-weight: 400;
+  background-color: #000;
+  color: #fff;
+}
+
+#default-btn {
+   font-family: "Bangers", serif;
+  font-weight: 400;
+  background-color: #f40000;
+  color: #fff;
+}
+
+#download-btn {
+   font-family: "Bangers", serif;
+  font-weight: 400;
+  background-color: #18d500;
+  color: #fff;
+}
+
+.options button {
+  width: 80px;
+  height: 80px;
+  margin: 5px;
+  background-size: cover;
+  position: relative;
+  border: 2px solid #ddd;
+}
+
+.options button img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
