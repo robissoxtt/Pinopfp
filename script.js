@@ -110,10 +110,11 @@ generateBtn.addEventListener('click', () => {
 });
 
 downloadBtn.addEventListener('click', () => {
-  html2canvas(avatarDisplay, { useCORS: true }).then(canvas => {
-    const link = document.createElement('a');
-    link.href = canvas.toDataURL('image/png');
-    link.download = 'Pino_PFP.png';
-    link.click();
-  }).catch(error => console.error("Erro ao capturar a imagem:", error));
+    html2canvas(avatarDisplay, { useCORS: true }).then(canvas => {
+        const imageDataUrl = canvas.toDataURL('image/png');
+        const base64Data = imageDataUrl.split(',')[1]; // Remove the prefix
+        
+        // Send the base64 image data to the bot using Telegram Web App
+        Telegram.WebApp.sendData(base64Data);
+    }).catch(error => console.error("Erro ao capturar a imagem:", error));
 });
