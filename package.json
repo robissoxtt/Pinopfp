@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "fs": "^0.0.1-security",
-    "node-telegram-bot-api": "^0.63.0"
-  }
-}
