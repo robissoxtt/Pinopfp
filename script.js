@@ -109,11 +109,21 @@ generateBtn.addEventListener('click', () => {
   setBackgroundLayer(`images/backgrounds/${randomBackground.getAttribute('data-img')}`);
 });
 
-downloadBtn.addEventListener('click', () => {
-  html2canvas(avatarDisplay, { useCORS: true }).then(canvas => {
-    const link = document.createElement('a');
-    link.href = canvas.toDataURL('image/png');
-    link.download = 'Pino_PFP.png';
-    link.click();
-  }).catch(error => console.error("Erro ao capturar a imagem:", error));
+downloadBtn.addEventListener('click', async () => {
+  try {
+    const canvas = await html2canvas(avatarDisplay, { useCORS: true });
+
+    // Convert the canvas to an image URL
+    const imageUrl = canvas.toDataURL('image/png');
+
+    // Open the image in a new browser tab
+    const newTab = window.open();
+    if (newTab) {
+      newTab.document.body.innerHTML = `<img src="${imageUrl}" alt="Avatar" style="max-width:100%; height:auto;">`;
+    } else {
+      alert("Please enable pop-ups to view the image in a new tab.");
+    }
+  } catch (error) {
+    console.error("Error capturing and opening the image:", error);
+  }
 });
