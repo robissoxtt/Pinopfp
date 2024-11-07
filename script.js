@@ -112,18 +112,53 @@ generateBtn.addEventListener('click', () => {
 downloadBtn.addEventListener('click', async () => {
   try {
     const canvas = await html2canvas(avatarDisplay, { useCORS: true });
-
+    
     // Convert the canvas to an image URL
     const imageUrl = canvas.toDataURL('image/png');
 
-    // Open the image in a new browser tab
-    const newTab = window.open();
-    if (newTab) {
-      newTab.document.body.innerHTML = `<img src="${imageUrl}" alt="Avatar" style="max-width:100%; height:auto;">`;
-    } else {
-      alert("Please enable pop-ups to view the image in a new tab.");
-    }
+    // Create the popup container
+    const popup = document.createElement('div');
+    popup.style.position = 'fixed';
+    popup.style.top = '0';
+    popup.style.left = '0';
+    popup.style.width = '100vw';
+    popup.style.height = '100vh';
+    popup.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+    popup.style.display = 'flex';
+    popup.style.alignItems = 'center';
+    popup.style.justifyContent = 'center';
+    popup.style.zIndex = '1000';
+
+    // Create the image element
+    const img = document.createElement('img');
+    img.src = imageUrl;
+    img.alt = "Avatar";
+    img.style.maxWidth = '90%';
+    img.style.maxHeight = '90%';
+    img.style.border = '2px solid #fff';
+    img.style.borderRadius = '8px';
+
+    // Create the close button
+    const closeButton = document.createElement('button');
+    closeButton.textContent = 'Close';
+    closeButton.style.position = 'absolute';
+    closeButton.style.top = '20px';
+    closeButton.style.right = '20px';
+    closeButton.style.padding = '10px 20px';
+    closeButton.style.backgroundColor = '#f00';
+    closeButton.style.color = '#fff';
+    closeButton.style.border = 'none';
+    closeButton.style.borderRadius = '5px';
+    closeButton.style.cursor = 'pointer';
+    closeButton.onclick = () => document.body.removeChild(popup);
+
+    // Append the image and close button to the popup
+    popup.appendChild(img);
+    popup.appendChild(closeButton);
+
+    // Add the popup to the document body
+    document.body.appendChild(popup);
   } catch (error) {
-    console.error("Error capturing and opening the image:", error);
+    console.error("Error capturing and displaying the image:", error);
   }
 });
