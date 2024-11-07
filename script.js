@@ -112,23 +112,17 @@ generateBtn.addEventListener('click', () => {
 downloadBtn.addEventListener('click', async () => {
   try {
     const canvas = await html2canvas(avatarDisplay, { useCORS: true });
-
-    // Convert the canvas to an image URL
     const imageUrl = canvas.toDataURL('image/png');
 
-    // Open a confirmation prompt to suggest opening the image in an external browser
-    const openInBrowser = confirm("To download the image, we need to open it in an external browser. Do you want to continue?");
-    
-    if (openInBrowser) {
-      // Attempt to open the image in an external browser
-      const externalWindow = window.open(imageUrl, '_blank');
-      if (externalWindow) {
-        externalWindow.opener = null; // Prevents the popup from being controlled by the original window
-      } else {
-        alert("Please enable pop-ups to open the image in an external browser.");
-      }
+    // Open the image in a new tab
+    const externalWindow = window.open(imageUrl, '_blank');
+    if (externalWindow) {
+      externalWindow.opener = null; // Ensures the popup is not controlled by the original window
+    } else {
+      alert("Please enable pop-ups to open the image in an external browser.");
     }
   } catch (error) {
     console.error("Error capturing and opening the image:", error);
   }
 });
+
