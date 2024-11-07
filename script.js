@@ -112,17 +112,62 @@ generateBtn.addEventListener('click', () => {
 downloadBtn.addEventListener('click', async () => {
   try {
     const canvas = await html2canvas(avatarDisplay, { useCORS: true });
+    
+    // Convert the canvas to an image URL
     const imageUrl = canvas.toDataURL('image/png');
 
-    // Open the image in a new tab
-    const externalWindow = window.open(imageUrl, '_blank');
-    if (externalWindow) {
-      externalWindow.opener = null; // Ensures the popup is not controlled by the original window
-    } else {
-      alert("Please enable pop-ups to open the image in an external browser.");
-    }
+    // Create the popup container
+    const popup = document.createElement('div');
+    popup.style.position = 'fixed';
+    popup.style.top = '0';
+    popup.style.left = '0';
+    popup.style.width = '100vw';
+    popup.style.height = '100vh';
+    popup.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+    popup.style.display = 'flex';
+    popup.style.alignItems = 'center';
+    popup.style.justifyContent = 'center';
+    popup.style.zIndex = '1000';
+
+    // Create a clickable link to allow "press and hold" save options on mobile
+    const imageLink = document.createElement('a');
+    imageLink.href = imageUrl;
+    imageLink.target = '_blank'; // Opens in a new tab if clicked
+    imageLink.download = 'avatar.png'; // Allows downloading the image on click
+
+    // Create the image element
+    const img = document.createElement('img');
+    img.src = imageUrl;
+    img.alt = "Avatar";
+    img.style.maxWidth = '90%';
+    img.style.maxHeight = '90%';
+    img.style.border = '2px solid #fff';
+    img.style.borderRadius = '8px';
+
+    // Append the image to the link, and then the link to the popup
+    imageLink.appendChild(img);
+    popup.appendChild(imageLink);
+
+    // Create the close button
+    const closeButton = document.createElement('button');
+    closeButton.textContent = 'Close';
+    closeButton.style.position = 'absolute';
+    closeButton.style.top = '20px';
+    closeButton.style.right = '20px';
+    closeButton.style.padding = '10px 20px';
+    closeButton.style.backgroundColor = '#f00';
+    closeButton.style.color = '#fff';
+    closeButton.style.border = 'none';
+    closeButton.style.borderRadius = '5px';
+    closeButton.style.cursor = 'pointer';
+    closeButton.onclick = () => document.body.removeChild(popup);
+
+    // Add the close button to the popup
+    popup.appendChild(closeButton);
+
+    // Add the popup to the document body
+    document.body.appendChild(popup);
   } catch (error) {
-    console.error("Error capturing and opening the image:", error);
+    console.error("Error capturing and displaying the image:", error);
   }
 });
-
