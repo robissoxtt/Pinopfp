@@ -161,7 +161,7 @@ button {
     border: none; /* No border */
     cursor: pointer; /* Pointer cursor on hover */
     padding: -8px; /* Padding for buttons */
-    font-size: 40px; /* Font size for arrows */
+    font-size: 120px; /* Font size for arrows */
     z-index: 1; /* Ensure buttons are on top */
 }
 
