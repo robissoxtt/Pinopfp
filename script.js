@@ -1,173 +1,183 @@
-// Seleciona os elementos principais
+// Select main elements
 const generateBtn = document.getElementById('generate-btn');
 const defaultBtn = document.getElementById('default-btn');
 const downloadBtn = document.getElementById('download-btn');
 const avatarDisplay = document.getElementById('avatar-display');
+const avatarImage = document.getElementById('avatar-image');
+avatarImage.onerror = function() {
+    console.error("Erro ao carregar a imagem:", avatarImage.src); // Exibe o caminho da imagem com erro
+    avatarImage.src = 'images/default/fallback_image.png'; // Substitui por uma imagem alternativa
+};
 
-// Definição das opções de personalização para cada categoria
-const glassesOptions = document.querySelectorAll('.glasses-option');
-const hatsOptions = document.querySelectorAll('.hats-option');
-const clothesOptions = document.querySelectorAll('.clothes-option');
-const backgroundOptions = document.querySelectorAll('.background-option');
+// Initialize accessory options
+const accessories = {
+  front: ['front (1).png', 'front (2).png', 'front (3).png'],
+  hats: ['hat (1).png', 'hat (2).png', 'hat (3).png', 'hat (4).png', 'hat (5).png', 'hat (6).png', 'hat (7).png'],
+  glasses: ['glasses (1).png', 'glasses (2).png', 'glasses (3).png', 'glasses (4).png', 'glasses (5).png', 'glasses (6).png', 'glasses (7).png'],
+  clothes: ['clothes (1).png', 'clothes (2).png', 'clothes (3).png', 'clothes (4).png', 'clothes (5).png', 'clothes (6).png', 'clothes (7).png', 'clothes (8).png', 'clothes (9).png'],
+  mouth: ['mouth (1).png', 'mouth (2).png',],
+  cores: ['base (1).png', 'base (2).png', 'base (3).png', 'base (4).png', 'base (5).png', 'base (6).png', 'base (7).png', 'base (8).png',],
+  based: ['aesthetic (1).png', 'aesthetic (2).png', 'aesthetic (3).png', 'aesthetic (4).png', 'aesthetic (5).png', 'aesthetic (6).png']
+};
 
-// Caminho para o background padrão
-const defaultBackgroundSrc = "images/backgrounds/default_background.png";
-
-// Função para definir o avatar padrão
+// Function to load the default avatar and background
 function setDefaultAvatar() {
   document.getElementById('avatar-image').src = "images/default/default_pino.png";
   document.querySelectorAll('.layer').forEach(layer => layer.remove());
-  setBackgroundLayer(defaultBackgroundSrc); // Define o background padrão
+  toggleCategoryImage('background-layer', "images/default/default_background.png", 0); // Set default background
 }
 
-// Carregar o avatar padrão ao iniciar a página
+// Load the default avatar on page load
 window.onload = setDefaultAvatar;
 
-// Função para atualizar a ordem das camadas
-function updateLayerOrder() {
-  const background = document.getElementById('background-layer');
-  const layers = {
-    avatar: document.getElementById('avatar-image'),
-    clothes: document.getElementById('clothes'),
-    glasses: document.getElementById('glasses'),
-    hats: document.getElementById('hats')
-  };
-  
-  if (background) avatarDisplay.prepend(background); // Background fica no início
-  Object.values(layers).forEach(layer => layer && avatarDisplay.appendChild(layer));
-}
-
-// Função para definir ou remover uma imagem como camada
-function toggleCategoryImage(category, imgSrc) {
+// Function to toggle a category image
+function toggleCategoryImage(category, imgSrc, zIndex = 1) {
   let existingImg = document.getElementById(category);
   
   if (existingImg) {
-    // Remove o acessório se ele já estiver presente
-    existingImg.remove();
+    existingImg.remove(); // Remove the accessory if it is already present
   } else {
-    // Adiciona o acessório como uma nova camada se ele não estiver presente
     const img = document.createElement('img');
     img.src = imgSrc;
     img.id = category;
     img.classList.add('layer');
-    avatarDisplay.appendChild(img);
+    img.style.zIndex = zIndex; // Set the zIndex
+    avatarDisplay.appendChild(img); // Add the accessory as a new layer
   }
-  updateLayerOrder();
 }
 
-// Função para adicionar uma camada sem alternar (usada pelo randomizador)
-function addCategoryImage(category, imgSrc) {
-  let existingImg = document.getElementById(category);
+// Function to set up slider functionality
+function setupSlider(slider, options) {
+  const prevButton = slider.querySelector('.prev');
+  const nextButton = slider.querySelector('.next');
+  const optionsContainer = slider.querySelector('.options');
   
-  if (!existingImg) {
-    // Adiciona o acessório como uma nova camada se ele não estiver presente
-    const img = document.createElement('img');
-    img.src = imgSrc;
-    img.id = category;
-    img.classList.add('layer');
-    avatarDisplay.appendChild(img);
-  } else {
-    existingImg.src = imgSrc; // Atualiza a imagem se já existir
+  let currentIndex = 0;
+
+  function showOptions() {
+    const allOptions = optionsContainer.children;
+    for (let i = 0; i < allOptions.length; i++) {
+      allOptions[i].style.display = (i >= currentIndex && i < currentIndex + 4) ? 'inline-block' : 'none';
+    }
   }
-  updateLayerOrder();
+
+  prevButton.addEventListener('click', () => {
+    if (currentIndex > 0) {
+      currentIndex -= 1;
+      showOptions();
+    }
+  });
+
+  nextButton.addEventListener('click', () => {
+    if (currentIndex < options.length - 4) {
+      currentIndex += 1;
+      showOptions();
+    }
+  });
+
+  showOptions(); // Initial call to show options
 }
 
-// Função para definir a camada de fundo
-function setBackgroundLayer(bgSrc) {
-  addCategoryImage('background-layer', bgSrc);
-}
+// Set up sliders for each category
+document.querySelectorAll('.slider').forEach(slider => {
+  const options = slider.querySelector('.options').children;
+  setupSlider(slider, options);
+});
 
-// Adiciona os eventos de clique para cada opção
-glassesOptions.forEach(option => option.addEventListener('click', () => {
-  toggleCategoryImage('glasses', `images/glasses/${option.getAttribute('data-img')}`);
-}));
+// Add event listeners for each option
+document.querySelectorAll('.front-option').forEach(option => {
+  option.addEventListener('click', () => {
+    toggleCategoryImage('front-layer', `images/front/${option.getAttribute('data-img')}`, 3);
+  });
+});
 
-hatsOptions.forEach(option => option.addEventListener('click', () => {
-  toggleCategoryImage('hats', `images/hats/${option.getAttribute('data-img')}`);
-}));
+document.querySelectorAll('.hats-option').forEach(option => {
+  option.addEventListener('click', () => {
+    toggleCategoryImage('hat-layer', `images/hats/${option.getAttribute('data-img')}`, 4);
+  });
+});
 
-clothesOptions.forEach(option => option.addEventListener('click', () => {
-  toggleCategoryImage('clothes', `images/clothes/${option.getAttribute('data-img')}`);
-}));
+document.querySelectorAll('.glasses-option').forEach(option => {
+  option.addEventListener('click', () => {
+    toggleCategoryImage('eye-layer', `images/glasses/${option.getAttribute('data-img')}`, 3);
+  });
+});
 
-backgroundOptions.forEach(option => option.addEventListener('click', () => {
-  setBackgroundLayer(`images/backgrounds/${option.getAttribute('data-img')}`);
-}));
+document.querySelectorAll('.clothes-option').forEach(option => {
+  option.addEventListener('click', () => {
+    toggleCategoryImage('clothes-layer', `images/clothes/${option.getAttribute('data-img')}`, 2);
+  });
+});
 
-// Eventos para botões de ação
+document.querySelectorAll('.mouth-option').forEach(option => {
+  option.addEventListener('click', () => {
+    toggleCategoryImage('mouth-layer', `images/mouth/${option.getAttribute('data-img')}`, 6);
+  });
+});
+
+// Add event listeners for cores selections
+document.querySelectorAll('.cores-option').forEach(option => {
+  option.addEventListener('click', () => {
+    toggleCategoryImage('cores-layer', `images/cores/${option.getAttribute('data-img')}`, 0);
+  });
+});
+
+// Add event listeners for based selections
+document.querySelectorAll('.based-option').forEach(option => {
+  option.addEventListener('click', () => {
+    toggleCategoryImage('based-layer', `images/based/${option.getAttribute('data-img')}`, 0);
+  });
+});
+
+// Action button events
 defaultBtn.addEventListener('click', setDefaultAvatar);
 
 generateBtn.addEventListener('click', () => {
-  const randomGlasses = glassesOptions[Math.floor(Math.random() * glassesOptions.length)];
-  const randomHats = hatsOptions[Math.floor(Math.random() * hatsOptions.length)];
-  const randomClothes = clothesOptions[Math.floor(Math.random() * clothesOptions.length)];
-  const randomBackground = backgroundOptions[Math.floor(Math.random() * backgroundOptions.length)];
+  const randomFront = accessories.front[Math.floor(Math.random() * accessories.front.length)];
+  const randomHat = accessories.hats[Math.floor(Math.random() * accessories.hats.length)];
+  const randomGlasses = accessories.glasses[Math.floor(Math.random() * accessories.glasses.length)];
+  const randomClothes = accessories.clothes[Math.floor(Math.random() * accessories.clothes.length)];
+  const randomMouth = accessories.mouth[Math.floor(Math.random() * accessories.mouth.length)];
+  const randomCores = accessories.cores[Math.floor(Math.random() * accessories.cores.length)];
+  const randomBased = accessories.based[Math.floor(Math.random() * accessories.based.length)];
 
-  addCategoryImage('glasses', `images/glasses/${randomGlasses.getAttribute('data-img')}`);
-  addCategoryImage('hats', `images/hats/${randomHats.getAttribute('data-img')}`);
-  addCategoryImage('clothes', `images/clothes/${randomClothes.getAttribute('data-img')}`);
-  setBackgroundLayer(`images/backgrounds/${randomBackground.getAttribute('data-img')}`);
+  // Apply random selections
+  toggleCategoryImage('front-layer', `images/front/${randomFront}`, 3);
+  toggleCategoryImage('hat-layer', `images/hats/${randomHat}`, 4);
+  toggleCategoryImage('eye-layer', `images/glasses/${randomGlasses}`, 3);
+  toggleCategoryImage('clothes-layer', `images/clothes/${randomClothes}`, 2);
+  toggleCategoryImage('mouth-layer', `images/mouth/${randomMouth}`, 6);
+  
+  // Set random cores and based together
+  toggleCategoryImage('cores-layer', `images/cores/${randomCores}`, 0);
+  toggleCategoryImage('based-layer', `images/based/${randomBased}`, 0);
 });
 
+// Download functionality
 downloadBtn.addEventListener('click', async () => {
-  try {
-    const canvas = await html2canvas(avatarDisplay, { useCORS: true });
-    
-    // Convert the canvas to an image URL
-    const imageUrl = canvas.toDataURL('image/png');
+    try {
+        // Create a canvas with the desired resolution
+        const canvas = document.createElement('canvas');
+        canvas.width = 1000; // Set the desired width
+        canvas.height = 1000; // Set the desired height
 
-    // Create the popup container
-    const popup = document.createElement('div');
-    popup.style.position = 'fixed';
-    popup.style.top = '0';
-    popup.style.left = '0';
-    popup.style.width = '100vw';
-    popup.style.height = '100vh';
-    popup.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
-    popup.style.display = 'flex';
-    popup.style.alignItems = 'center';
-    popup.style.justifyContent = 'center';
-    popup.style.zIndex = '1000';
+        const ctx = canvas.getContext('2d');
 
-    // Create a clickable link to allow "press and hold" save options on mobile
-    const imageLink = document.createElement('a');
-    imageLink.href = imageUrl;
-    imageLink.target = '_blank'; // Opens in a new tab if clicked
-    imageLink.download = 'avatar.png'; // Allows downloading the image on click
+        // Draw the avatar display onto the canvas
+        const avatarClone = await html2canvas(avatarDisplay, { useCORS: true });
+        ctx.drawImage(avatarClone, 0, 0, canvas.width, canvas.height);
 
-    // Create the image element
-    const img = document.createElement('img');
-    img.src = imageUrl;
-    img.alt = "Avatar";
-    img.style.maxWidth = '90%';
-    img.style.maxHeight = '90%';
-    img.style.border = '2px solid #fff';
-    img.style.borderRadius = '8px';
+        // Create the downloadable image URL
+        const imageUrl = canvas.toDataURL('image/png');
 
-    // Append the image to the link, and then the link to the popup
-    imageLink.appendChild(img);
-    popup.appendChild(imageLink);
-
-    // Create the close button
-    const closeButton = document.createElement('button');
-    closeButton.textContent = 'Close';
-    closeButton.style.position = 'absolute';
-    closeButton.style.top = '20px';
-    closeButton.style.right = '20px';
-    closeButton.style.padding = '10px 20px';
-    closeButton.style.backgroundColor = '#f00';
-    closeButton.style.color = '#fff';
-    closeButton.style.border = 'none';
-    closeButton.style.borderRadius = '5px';
-    closeButton.style.cursor = 'pointer';
-    closeButton.onclick = () => document.body.removeChild(popup);
-
-    // Add the close button to the popup
-    popup.appendChild(closeButton);
-
-    // Add the popup to the document body
-    document.body.appendChild(popup);
-  } catch (error) {
-    console.error("Error capturing and displaying the image:", error);
-  }
+        // Create a link element
+        const link = document.createElement('a');
+        link.href = imageUrl;
+        link.download = 'PinoPFP.png'; // Name of the downloaded file
+        document.body.appendChild(link); // Append to body to make it work in Firefox
+        link.click(); // Trigger the download
+        document.body.removeChild(link); // Remove the link from the document
+    } catch (error) {
+        console.error("Error capturing and downloading the image:", error);
+    }
 });
