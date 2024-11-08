@@ -1,6 +1,7 @@
 body {
     font-family: "Bangers", serif;
     font-weight: 400;
+    font-size: 25rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,29 +11,26 @@ body {
     
 }
 
-
-
 .container {
     text-align: center;
-     margin-top: 665px; 
+    margin-top: 0; 
+    font-size: 2rem;
     
 }
 
 
 .buttons-container {
  
-    position: fixed; /* Keep the buttons fixed */
-    top: 613px; /* Position them from the top of the viewport */
-    left: 50%; /* Center the container horizontally */
-    transform: translateX(-50%); /* Center adjustment */
-    display: flex; /* Use flexbox for alignment */
-    gap: 10px; /* Space between buttons */
-    z-index: 10; /* Ensure above other elements */
+    top: 639px; /* Position them from the top of the viewport */
+    left: 162%; /* Center the container horizontally */
+  
+ 
 }
 
 #generate-btn, #default-btn, #download-btn {
     font-family: "Bangers", serif;
-    font-weight: 400;
+    font-weight: 439;
+    font-size: 2rem;
     padding: 10px 15px; /* Add padding for buttons */
     border: none; /* Remove border */
     border-radius: 8px; /* Round the corners */
@@ -55,15 +53,15 @@ body {
 
 
 .avatar-display {
-    width: 600px; /* Keep this width or adjust as needed */
-    height: 600px; /* Keep this height or adjust as needed */
-    position: fixed; /* Keep it fixed */
-    top: 6px; /* Position it from the top of the viewport */
+    width: 1000px; /* Keep this width or adjust as needed */
+    height: 1000px; /* Keep this height or adjust as needed */
+    
+    top: 20px; /* Position it from the top of the viewport */
     left: 50%; /* Center it horizontally */
     transform: translateX(-50%); /* Correct the centering */
     overflow: visible; /* Ensure overflow is visible */
     z-index: 10; /* Ensure it’s on top of other elements */
-    display: flex; /* Use flexbox for alignment */
+    
 }
 /* Camadas de acessórios */
 #avatar-image,
@@ -99,6 +97,7 @@ body {
 
 /* Imagens de acessórios dentro dos botões */
 .options button img {
+    
     width: 100%;
     height: 100%;
     object-fit: cover;
