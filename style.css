@@ -14,7 +14,7 @@ body {
 
 .container {
     text-align: center;
-     margin-top: 550px; 
+     margin-top: 665px; 
     
 }
 
@@ -22,7 +22,7 @@ body {
 .buttons-container {
  
     position: fixed; /* Keep the buttons fixed */
-    top: 512px; /* Position them from the top of the viewport */
+    top: 613px; /* Position them from the top of the viewport */
     left: 50%; /* Center the container horizontally */
     transform: translateX(-50%); /* Center adjustment */
     display: flex; /* Use flexbox for alignment */
@@ -55,8 +55,8 @@ body {
 
 
 .avatar-display {
-    width: 500px; /* Keep this width or adjust as needed */
-    height: 500px; /* Keep this height or adjust as needed */
+    width: 600px; /* Keep this width or adjust as needed */
+    height: 600px; /* Keep this height or adjust as needed */
     position: fixed; /* Keep it fixed */
     top: 6px; /* Position it from the top of the viewport */
     left: 50%; /* Center it horizontally */
@@ -143,12 +143,12 @@ button {
 .options {
     display: flex; /* Use flexbox for options */
     overflow: hidden; /* Hide overflow to maintain the view */
-    width: 441px; /* Set a fixed width for the options */
+    width: 853px; /* Set a fixed width for the options */
 }
 
 .options button {
-    width: 100px; /* Button width */
-    height: 100px; /* Button height */
+    width: 200px; /* Button width */
+    height: 200px; /* Button height */
     margin: 5px;
     background-size: cover; /* Adjust for the background image */
     position: relative;
