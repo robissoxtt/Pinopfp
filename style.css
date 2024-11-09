@@ -1,92 +1,84 @@
+/* Global Styles */
 body {
     font-family: "Bangers", serif;
     font-weight: 400;
-    font-size: 25rem;
+    font-size: 2rem; /* Adjust font size */
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     margin: 0;
     background-color: rgba(214, 209, 60, 0.51);
-    
 }
 
+/* Container for the page */
 .container {
     text-align: center;
-    margin-top: 0; 
     font-size: 2rem;
-    
 }
 
-
+/* Buttons container */
 .buttons-container {
- 
-    top: 625px; /* Position them from the top of the viewport */
-    left: 162%; /* Center the container horizontally */
-  
- 
+    position: fixed; /* Keep buttons in place */
+    top: 650px; /* Adjust based on your needs */
+    left: 50%;
+    transform: translateX(-50%); /* Center horizontally */
+    z-index: 10;
+    display: flex;
+    gap: 20px;
 }
 
+/* Button Styles */
 #generate-btn, #default-btn, #download-btn {
     font-family: "Bangers", serif;
     font-weight: 439;
-    font-size: 2rem;
-    padding: 10px 15px; /* Add padding for buttons */
-    border: none; /* Remove border */
-    border-radius: 8px; /* Round the corners */
-    color: #fff; /* Text color */
+    font-size: 1.5rem;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
 }
 
 #generate-btn {
-    background-color: #000; /* Button color */
+    background-color: #000; /* Black background */
 }
 
 #default-btn {
-    background-color: #f40000; /* Button color */
+    background-color: #f40000; /* Red background */
 }
 
 #download-btn {
-    background-color: #18d500; /* Button color */
+    background-color: #18d500; /* Green background */
 }
 
-
-
-
+/* Avatar Display */
 .avatar-display {
-    width: 1000px; /* Keep this width or adjust as needed */
-    height: 1000px; /* Keep this height or adjust as needed */
-    
-    top: 20px; /* Position it from the top of the viewport */
-    left: 50%; /* Center it horizontally */
-    transform: translateX(-47%); /* Correct the centering */
-    
-    z-index: 10; /* Ensure it’s on top of other elements */
-    
+    width: 500px; /* Adjust width */
+    height: 500px; /* Adjust height */
+    position: relative;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%); /* Center horizontally */
+    z-index: 10;
 }
-/* Camadas de acessórios */
-#avatar-image,
-.layer {
+
+#avatar-image, .layer {
     position: absolute;
     width: 100%;
     height: 100%;
     object-fit: contain;
-    z-index: 1; /* Garante que o avatar e acessórios fiquem acima do background */
+    z-index: 1;
 }
 
-.layer {
-    z-index: 0;
-    
-}
-
-/* Icone do corpo padrão para os botões de acessório */
+/* Button Icons for Accessories */
 .options button {
-
     width: 80px;
     height: 80px;
     border: 2px solid #ddd;
     margin: 5px;
     cursor: pointer;
-    background-image: url('images/default/default_pino.png'); /* Corpo padrão */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -95,74 +87,70 @@ body {
     z-index: 1;
 }
 
-/* Imagens de acessórios dentro dos botões */
+/* Image inside accessory buttons */
 .options button img {
-    
     width: 100%;
     height: 100%;
     object-fit: cover;
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 1; /* Garante que os acessórios fiquem acima do corpo padrão */
+    z-index: 1;
 }
 
-button {
-    padding: 10px 10px;
-    margin: 10px 5px;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.1s;
+/* Slider for accessory selection */
+.slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    overflow-x: scroll; /* Allow scrolling */
 }
 
-
+.options {
+    display: flex;
+    gap: 10px;
+}
 
 .options button {
-    width: 80px;
-    height: 80px;
-    margin: 53px;
+    width: 150px;
+    height: 150px;
+    margin: 10px;
     background-size: cover;
     position: relative;
     border: 2px solid #ddd;
 }
 
-.options button img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+/* Optional: Hover effect for buttons */
+.options button:hover {
+    opacity: 0.8;
 }
 
-.slider {
-    display: flex; /* Use flexbox to align items */
-    align-items: center; /* Center items vertically */
-}
-
-.options {
-    display: flex; /* Use flexbox for options */
-    overflow: hidden; /* Hide overflow to maintain the view */
-    width: 853px; /* Set a fixed width for the options */
-}
-
-.options button {
-    width: 200px; /* Button width */
-    height: 200px; /* Button height */
-    margin: 5px;
-    background-size: cover; /* Adjust for the background image */
-    position: relative;
-    border: 2px solid #ddd; /* Border for the buttons */
-}
-
-/* Optional styles to make buttons more visible */
+/* Pagination buttons (Next/Previous) */
 .prev, .next {
-    background-color: #ebf500; /* Light background for buttons */
-    border: none; /* No border */
-    cursor: pointer; /* Pointer cursor on hover */
-    padding: -8px; /* Padding for buttons */
-    font-size: 120px; /* Font size for arrows */
-    z-index: 1; /* Ensure buttons are on top */
+    background-color: #ebf500;
+    border: none;
+    cursor: pointer;
+    font-size: 40px;
+    padding: 10px;
+    z-index: 2;
 }
 
-
-
+/* Improve responsiveness */
+@media (max-width: 768px) {
+    .avatar-display {
+        width: 300px;
+        height: 300px;
+    }
+    .buttons-container {
+        top: 550px; /* Adjust top position */
+    }
+    #generate-btn, #default-btn, #download-btn {
+        font-size: 1.2rem;
+        padding: 8px 12px;
+    }
+    .options button {
+        width: 60px;
+        height: 60px;
+    }
+}
