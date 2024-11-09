@@ -57,7 +57,7 @@ function setupSlider(slider, options) {
   function showOptions() {
     const allOptions = optionsContainer.children;
     for (let i = 0; i < allOptions.length; i++) {
-      allOptions[i].style.display = (i >= currentIndex && i < currentIndex + 3) ? 'inline-block' : 'none';
+      allOptions[i].style.display = (i >= currentIndex && i < currentIndex + 4) ? 'inline-block' : 'none';
     }
   }
 
