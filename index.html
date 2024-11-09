@@ -1,159 +1,110 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Pino PFP Generator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avatar Customizer</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
-        <h1>Pino PFP Generator</h1>
-        
+        <!-- Área de Exibição do Avatar -->
         <div class="avatar-display" id="avatar-display">
             <img id="avatar-image" src="images/default/default_pino.png" alt="Avatar">
         </div>
-      
-      
-      
-        
-        <div class="buttons-container" id="buttons-container">
-    <button id="generate-btn">RANDOMIZE</button>
-    <button id="default-btn">RESET</button>
-    <button id="download-btn">DOWNLOAD</button>
-</div>
-        
-        <div class="customization">
-            <h2>CUSTOMIZE YOUR $PINO</h2>
-            
-            <!-- Slider for Front -->
-            <div class="category">
+
+        <!-- Botões principais para Randomize, Reset e Download -->
+        <div class="buttons-container">
+            <button id="generate-btn">Randomize</button>
+            <button id="default-btn">Reset</button>
+            <button id="download-btn">Download</button>
+        </div>
+
+        <!-- Opções de Acessórios -->
+        <div class="options">
+            <!-- Front (3 itens) -->
+            <div class="category" id="front-options">
                 <h3>Front</h3>
-                <div class="slider">
-                    <button class="prev">❮</button>
-                    <div class="options front">
-                        <button class="front-option" data-img="front (1).png" title="Front 1"><img src="images/front/front (1).png" alt="Front 1"></button>
-                        <button class="front-option" data-img="front (2).png" title="Front 2"><img src="images/front/front (2).png" alt="Front 2"></button>
-                        <button class="front-option" data-img="front (3).png" title="Front 3"><img src="images/front/front (3).png" alt="Front 3"></button>
-                    </div>
-                    <button class="next">❯</button>
-                </div>
+                <button class="accessory-button" data-category="front" data-image="front1.png"></button>
+                <button class="accessory-button" data-category="front" data-image="front2.png"></button>
+                <button class="accessory-button" data-category="front" data-image="front3.png"></button>
             </div>
-
-            <!-- Slider for Hats -->
-            <div class="category">
+            
+            <!-- Hats (7 itens) -->
+            <div class="category" id="hats-options">
                 <h3>Hats</h3>
-                <div class="slider">
-                    <button class="prev">❮</button>
-                    <div class="options hats">
-                        <button class="hats-option" data-img="hat (1).png" title="Hat 1"><img src="images/hats/hat (1).png" alt="Hat 1"></button>
-                        <button class="hats-option" data-img="hat (2).png" title="Hat 2"><img src="images/hats/hat (2).png" alt="Hat 2"></button>
-                        <button class="hats-option" data-img="hat (3).png" title="Hat 3"><img src="images/hats/hat (3).png" alt="Hat 3"></button>
-                        <button class="hats-option" data-img="hat (4).png" title="Hat 4"><img src="images/hats/hat (4).png" alt="Hat 4"></button>
-                        <button class="hats-option" data-img="hat (5).png" title="Hat 5"><img src="images/hats/hat (5).png" alt="Hat 5"></button>
-                        <button class="hats-option" data-img="hat (6).png" title="Hat 6"><img src="images/hats/hat (6).png" alt="Hat 6"></button>
-                        <button class="hats-option" data-img="hat (7).png" title="Hat 7"><img src="images/hats/hat (7).png" alt="Hat 7"></button>
-                    </div>
-                    <button class="next">❯</button>
-                </div>
+                <button class="accessory-button" data-category="hats" data-image="hat1.png"></button>
+                <button class="accessory-button" data-category="hats" data-image="hat2.png"></button>
+                <button class="accessory-button" data-category="hats" data-image="hat3.png"></button>
+                <button class="accessory-button" data-category="hats" data-image="hat4.png"></button>
+                <button class="accessory-button" data-category="hats" data-image="hat5.png"></button>
+                <button class="accessory-button" data-category="hats" data-image="hat6.png"></button>
+                <button class="accessory-button" data-category="hats" data-image="hat7.png"></button>
             </div>
-
-            <!-- Slider for Glasses -->
-            <div class="category">
-                <h3>Eyes</h3>
-                <div class="slider">
-                    <button class="prev">❮</button>
-                    <div class="options glasses">
-                        <button class="glasses-option" data-img="glasses (1).png" title="Glasses 1"><img src="images/glasses/glasses (1).png" alt="Glasses 1"></button>
-                        <button class="glasses-option" data-img="glasses (2).png" title="Glasses 2"><img src="images/glasses/glasses (2).png" alt="Glasses 2"></button>
-                        <button class="glasses-option" data-img="glasses (3).png" title="Glasses 3"><img src="images/glasses/glasses (3).png" alt="Glasses 3"></button>
-                        <button class="glasses-option" data-img="glasses (4).png" title="Glasses 4"><img src="images/glasses/glasses (4).png" alt="Glasses 4"></button>
-                        <button class="glasses-option" data-img="glasses (5).png" title="Glasses 5"><img src="images/glasses/glasses (5).png" alt="Glasses 5"></button>
-                        <button class="glasses-option" data-img="glasses (6).png" title="Glasses 6"><img src="images/glasses/glasses (6).png" alt="Glasses 6"></button>
-                        <button class="glasses-option" data-img="glasses (7).png" title="Glasses 7"><img src="images/glasses/glasses (7).png" alt="Glasses 7"></button>
-                    </div>
-                    <button class="next">❯</button>
-                </div>
+            
+            <!-- Glasses (8 itens) -->
+            <div class="category" id="glasses-options">
+                <h3>Glasses</h3>
+                <button class="accessory-button" data-category="glasses" data-image="glasses1.png"></button>
+                <button class="accessory-button" data-category="glasses" data-image="glasses2.png"></button>
+                <button class="accessory-button" data-category="glasses" data-image="glasses3.png"></button>
+                <button class="accessory-button" data-category="glasses" data-image="glasses4.png"></button>
+                <button class="accessory-button" data-category="glasses" data-image="glasses5.png"></button>
+                <button class="accessory-button" data-category="glasses" data-image="glasses6.png"></button>
+                <button class="accessory-button" data-category="glasses" data-image="glasses7.png"></button>
+                <button class="accessory-button" data-category="glasses" data-image="glasses8.png"></button>
             </div>
-
-            <!-- Slider for Clothes -->
-            <div class="category">
+            
+            <!-- Clothes (9 itens) -->
+            <div class="category" id="clothes-options">
                 <h3>Clothes</h3>
-                <div class="slider">
-                    <button class="prev">❮</button>
-                    <div class="options clothes">
-                        <button class="clothes-option" data-img="clothes (1).png" title="Clothes 1"><img src="images/clothes/clothes (1).png" alt="Clothes 1"></button>
-                        <button class="clothes-option" data-img="clothes (2).png" title="Clothes 2"><img src="images/clothes/clothes (2).png" alt="Clothes 2"></button>
-                        <button class="clothes-option" data-img="clothes (3).png" title="Clothes 3"><img src="images/clothes/clothes (3).png" alt="Clothes 3"></button>
-                        <button class="clothes-option" data-img="clothes (4).png" title="Clothes 4"><img src="images/clothes/clothes (4).png" alt="Clothes 4"></button>
-                        <button class="clothes-option" data-img="clothes (5).png" title="Clothes 5"><img src="images/clothes/clothes (5).png" alt="Clothes 5"></button>
-                        <button class="clothes-option" data-img="clothes (6).png" title="Clothes 6"><img src="images/clothes/clothes (6).png" alt="Clothes 6"></button>
-                        <button class="clothes-option" data-img="clothes (7).png" title="Clothes 7"><img src="images/clothes/clothes (7).png" alt="Clothes 7"></button>
-                        <button class="clothes-option" data-img="clothes (8).png" title="Clothes 8"><img src="images/clothes/clothes (8).png" alt="Clothes 8"></button>
-                        <button class="clothes-option" data-img="clothes (9).png" title="Clothes 9"><img src="images/clothes/clothes (9).png" alt="Clothes 9"></button>
-                    </div>
-                    <button class="next">❯</button>
-                </div>
+                <button class="accessory-button" data-category="clothes" data-image="clothes1.png"></button>
+                <button class="accessory-button" data-category="clothes" data-image="clothes2.png"></button>
+                <button class="accessory-button" data-category="clothes" data-image="clothes3.png"></button>
+                <button class="accessory-button" data-category="clothes" data-image="clothes4.png"></button>
+                <button class="accessory-button" data-category="clothes" data-image="clothes5.png"></button>
+                <button class="accessory-button" data-category="clothes" data-image="clothes6.png"></button>
+                <button class="accessory-button" data-category="clothes" data-image="clothes7.png"></button>
+                <button class="accessory-button" data-category="clothes" data-image="clothes8.png"></button>
+                <button class="accessory-button" data-category="clothes" data-image="clothes9.png"></button>
             </div>
-
-            <!-- Slider for Mouth -->
-            <div class="category">
-                <h3>Mouth</h3>
-                <div class="slider">
-                    <button class="prev">❮</button>
-                    <div class="options mouth">
-                        <button class="mouth-option" data-img="mouth (1).png" title="Mouth 1"><img src="images/mouth/mouth (1).png" alt="Mouth 1"></button>
-                        <button class="mouth-option" data-img="mouth (2).png" title="Mouth 2"><img src="images/mouth/mouth (2).png" alt="Mouth 2"></button>
-                   
-                    </div>
-                    <button class="next">❯</button>
-                </div>
+            
+            <!-- Mouths (3 itens) -->
+            <div class="category" id="mouths-options">
+                <h3>Mouths</h3>
+                <button class="accessory-button" data-category="mouths" data-image="mouth1.png"></button>
+                <button class="accessory-button" data-category="mouths" data-image="mouth2.png"></button>
+                <button class="accessory-button" data-category="mouths" data-image="mouth3.png"></button>
             </div>
-
-            <!-- Slider for Cores -->
-            <div class="category">
-                <h3>BG COLORS</h3>
-                <div class="slider">
-                    <button class="prev">❮</button>
-                    <div class="options cores">
-                        <button class="cores-option" data-img="base (1).png" title="Core 1"><img src="images/cores/base (1).png" alt="Core 1"></button>
-                        <button class="cores-option" data-img="base (2).png" title="Core 2"><img src="images/cores/base (2).png" alt="Core 2"></button>
-                        <button class="cores-option" data-img="base (3).png" title="Core 3"><img src="images/cores/base (3).png" alt="Core 3"></button>
-                        <button class="cores-option" data-img="base (4).png" title="Core 4"><img src="images/cores/base (4).png" alt="Core 4"></button>
-                        <button class="cores-option" data-img="base (5).png" title="Core 5"><img src="images/cores/base (5).png" alt="Core 5"></button>
-                        <button class="cores-option" data-img="base (6).png" title="Core 6"><img src="images/cores/base (6).png" alt="Core 6"></button>
-                        <button class="cores-option" data-img="base (7).png" title="Core 7"><img src="images/cores/base (7).png" alt="Core 7"></button>
-                        <button class="cores-option" data-img="base (8).png" title="Core 8"><img src="images/cores/base (8).png" alt="Core 8"></button>
-                        <button class="cores-option" data-img="base (9).png" title="Core 9"><img src="images/cores/base (9).png" alt="Core 9"></button>
-                        <button class="cores-option" data-img="base (10).png" title="Core 10"><img src="images/cores/base (10).png" alt="Core 10"></button>
-                    </div>
-                    <button class="next">❯</button>
-                </div>
+            
+            <!-- Aesthetic Backgrounds - Cores (6 itens) -->
+            <div class="category" id="cores-options">
+                <h3>Cores</h3>
+                <button class="accessory-button" data-category="cores" data-image="core1.png"></button>
+                <button class="accessory-button" data-category="cores" data-image="core2.png"></button>
+                <button class="accessory-button" data-category="cores" data-image="core3.png"></button>
+                <button class="accessory-button" data-category="cores" data-image="core4.png"></button>
+                <button class="accessory-button" data-category="cores" data-image="core5.png"></button>
+                <button class="accessory-button" data-category="cores" data-image="core6.png"></button>
             </div>
-
-            <!-- Slider for Based -->
-            <div class="category">
-                <h3>AESTHETIC</h3>
-                <div class="slider">
-                    <button class="prev">❮</button>
-                    <div class="options based">
-                        <button class="based-option" data-img="aesthetic (1).png" title="Based 1"><img src="images/based/aesthetic (1).png" alt="Based 1"></button>
-                        <button class="based-option" data-img="aesthetic (2).png" title="Based 2"><img src="images/based/aesthetic (2).png" alt="Based 2"></button>
-                        <button class="based-option" data-img="aesthetic (3).png" title="Based 3"><img src="images/based/aesthetic (3).png" alt="Based 3"></button>
-                        <button class="based-option" data-img="aesthetic (4).png" title="Based 4"><img src="images/based/aesthetic (4).png" alt="Based 4"></button>
-                        
-                    </div>
-                    <button class="next">❯</button>
-                </div>
+            
+            <!-- Solid Color Backgrounds - Based (10 itens) -->
+            <div class="category" id="based-options">
+                <h3>Based</h3>
+                <button class="accessory-button" data-category="based" data-image="base1.png"></button>
+                <button class="accessory-button" data-category="based" data-image="base2.png"></button>
+                <button class="accessory-button" data-category="based" data-image="base3.png"></button>
+                <button class="accessory-button" data-category="based" data-image="base4.png"></button>
+                <button class="accessory-button" data-category="based" data-image="base5.png"></button>
+                <button class="accessory-button" data-category="based" data-image="base6.png"></button>
+                <button class="accessory-button" data-category="based" data-image="base7.png"></button>
+                <button class="accessory-button" data-category="based" data-image="base8.png"></button>
+                <button class="accessory-button" data-category="based" data-image="base9.png"></button>
+                <button class="accessory-button" data-category="based" data-image="base10.png"></button>
             </div>
         </div>
-        
-        <footer>
-            <p>© 2024 $Pino Community. All rights reserved. Created by @robisso.</p>
-        </footer>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
