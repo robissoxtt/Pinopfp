@@ -2,7 +2,6 @@
 body {
     font-family: "Bangers", serif;
     font-weight: 400;
-    font-size: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,21 +10,18 @@ body {
     background-color: rgba(214, 209, 60, 0.51);
 }
 
-/* Container Principal */
+/* Container principal */
 .container {
     text-align: center;
-    margin-top: 50px;
 }
 
-/* Avatar Display */
+/* Exibição do Avatar */
 .avatar-display {
-    width: 500px; /* Ajuste conforme necessário */
+    width: 500px;
     height: 500px;
+    margin: 0 auto; /* Centraliza horizontalmente */
     position: relative;
-    margin: 0 auto; /* Centraliza o display do avatar */
-    top: 20px;
     overflow: hidden;
-    z-index: 10;
 }
 
 /* Camadas de Avatar e Acessórios */
@@ -35,18 +31,15 @@ body {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    z-index: 1;
 }
 
-/* Botões de Opções de Acessórios */
+/* Opções de Acessórios */
 .options {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap; /* Permite que os botões de acessórios se ajustem em várias linhas */
+    flex-wrap: wrap;
     gap: 10px;
     margin-top: 20px;
-    width: 100%;
-    max-width: 853px;
 }
 
 .options button {
@@ -59,46 +52,35 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    position: relative;
     box-shadow: -4px 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-    z-index: 1;
 }
 
-/* Imagem dentro dos Botões de Acessório */
+/* Imagens de acessórios dentro dos botões */
 .options button img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
 }
 
-/* Estilos dos Botões Principais (Download, Reset, Randomize) */
+/* Botões de ação principais */
 #generate-btn, #default-btn, #download-btn {
-    font-family: "Bangers", serif;
-    font-size: 1.2rem;
     padding: 10px 15px;
+    margin: 10px 5px;
     border: none;
     border-radius: 8px;
+    font-size: 1rem;
     color: #fff;
     cursor: pointer;
-    margin: 10px 5px;
-    transition: background-color 0.3s, transform 0.1s;
 }
 
-#generate-btn { background-color: #000; }
-#default-btn { background-color: #f40000; }
-#download-btn { background-color: #18d500; }
+#generate-btn {
+    background-color: #000;
+}
 
-/* Botões de Navegação do Slider */
-.prev, .next {
-    background-color: #ebf500;
-    border: none;
-    cursor: pointer;
-    font-size: 40px;
-    padding: 5px;
-    z-index: 1;
+#default-btn {
+    background-color: #f40000;
+}
+
+#download-btn {
+    background-color: #18d500;
 }
