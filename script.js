@@ -29,15 +29,15 @@ function toggleCategoryImage(category, imgSrc, zIndex = 1) {
   let existingImg = document.getElementById(category);
   
   if (existingImg) {
-    existingImg.remove(); // Remove the accessory if it is already present
-  } else {
-    const img = document.createElement('img');
-    img.src = imgSrc;
-    img.id = category;
-    img.classList.add('layer');
-    img.style.zIndex = zIndex;
-    avatarDisplay.appendChild(img); // Add the accessory as a new layer
+    existingImg.remove();
   }
+  
+  const img = document.createElement('img');
+  img.src = imgSrc;
+  img.id = category;
+  img.classList.add('layer');
+  img.style.zIndex = zIndex; // Set the zIndex
+  avatarDisplay.appendChild(img);
 }
 
 // Add event listeners for each option
@@ -74,14 +74,14 @@ document.querySelectorAll('.mouth-option').forEach(option => {
 // Add event listeners for cores selections
 document.querySelectorAll('.cores-option').forEach(option => {
   option.addEventListener('click', () => {
-    toggleCategoryImage('cores-layer', `images/cores/${option.getAttribute('data-img')}`, 0);
+    toggleCategoryImage('cores-layer', `images/cores/${option.getAttribute('data-img')}`, 0); // Set zIndex to 0
   });
 });
 
 // Add event listeners for based selections
 document.querySelectorAll('.based-option').forEach(option => {
   option.addEventListener('click', () => {
-    toggleCategoryImage('based-layer', `images/based/${option.getAttribute('data-img')}`, 0);
+    toggleCategoryImage('based-layer', `images/based/${option.getAttribute('data-img')}`, 0); // Set zIndex to 0
   });
 });
 
@@ -104,7 +104,7 @@ generateBtn.addEventListener('click', () => {
   toggleCategoryImage('clothes-layer', `images/clothes/${randomClothes}`, 2);
   toggleCategoryImage('mouth-layer', `images/mouth/${randomMouth}`, 6);
   
-  // Set random cores and based together
+  // Set random cores and based together with zIndex 0 to keep them behind
   toggleCategoryImage('cores-layer', `images/cores/${randomCores}`, 0);
   toggleCategoryImage('based-layer', `images/based/${randomBased}`, 0);
 });
@@ -169,4 +169,4 @@ downloadBtn.addEventListener('click', async () => {
   } catch (error) {
     console.error("Error capturing and displaying the image:", error);
   }
-});
+}); 
