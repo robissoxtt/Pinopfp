@@ -87,7 +87,7 @@ document.querySelectorAll('.slider').forEach(slider => {
 // Add event listeners for each option
 document.querySelectorAll('.front-option').forEach(option => {
   option.addEventListener('click', () => {
-    toggleCategoryImage('front-layer', `images/front/${option.getAttribute('data-img')}`, 3);
+    toggleCategoryImage('front-layer', `images/front/${option.getAttribute('data-img')}`, 7);
   });
 });
 
