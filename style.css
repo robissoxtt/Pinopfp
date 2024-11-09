@@ -1,3 +1,8 @@
+
+h1 {
+  font-size: 87px; /* Increases the font size of the main title */
+}
+
 body {
   font-family: "Bangers", serif;
   font-weight: 400;
@@ -7,6 +12,7 @@ body {
   min-height: 100vh;
   margin: 0;
   background-color: #ffe200;
+  font-size: 24px;
 }
 
 .container {
@@ -79,6 +85,8 @@ body {
   justify-content: space-between; /* Coloca os botões nas extremidades */
   align-items: center; /* Alinha os itens verticalmente no centro */
   position: relative;
+    margin-right: 200px; /* Aumenta o espaço à direita da seta "❮" */
+     margin-left: 200px;
 }
 
 .slider button {
@@ -108,19 +116,34 @@ body {
 }
 
 
+#buttons-container {
+  display: flex; /* Coloca os botões lado a lado */
+  justify-content: center; /* Centraliza os botões dentro do contêiner */
+  gap: 15px; /* Espaçamento entre os botões */
+  margin-top: 20px; /* Adiciona uma margem superior para o contêiner */
+}
+
+#generate-btn, #default-btn, #download-btn {
+  padding: 10px 20px; /* Ajuste no padding dos botões */
+  font-size: 16px; /* Tamanho da fonte dos botões */
+  border: none; /* Remove a borda padrão dos botões */
+  border-radius: 8px; /* Borda arredondada para os botões */
+  cursor: pointer; /* Aplica o cursor de "mãozinha" ao passar sobre o botão */
+}
+
 #generate-btn {
-  background-color: #000;
-  color: #fff;
+  background-color: #000; /* Fundo preto para o botão 'RANDOMIZE' */
+  color: #fff; /* Cor do texto em branco */
 }
 
 #default-btn {
-  background-color: #f40000;
-  color: #fff;
+  background-color: #f40000; /* Fundo vermelho para o botão 'RESET' */
+  color: #fff; /* Cor do texto em branco */
 }
 
 #download-btn {
-  background-color: #18d500;
-  color: #fff;
+  background-color: #18d500; /* Fundo verde para o botão 'DOWNLOAD' */
+  color: #fff; /* Cor do texto em branco */
 }
 
 footer {
