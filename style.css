@@ -88,8 +88,8 @@ body {
   justify-content: space-between; /* Coloca os botões nas extremidades */
   align-items: center; /* Alinha os itens verticalmente no centro */
   position: relative;
-    margin-right: 200px; /* Aumenta o espaço à direita da seta "❮" */
-     margin-left: 200px;
+    margin-right: 50px; /* Aumenta o espaço à direita da seta "❮" */
+     margin-left: 50px;
 }
 
 .slider button {
