@@ -1,4 +1,3 @@
-/* Estilos Globais */
 body {
     font-family: "Bangers", serif;
     display: flex;
@@ -9,12 +8,10 @@ body {
     background-color: rgba(214, 209, 60, 0.51);
 }
 
-/* Container principal */
 .container {
     text-align: center;
 }
 
-/* Área de Exibição do Avatar */
 .avatar-display {
     width: 500px;
     height: 500px;
@@ -23,7 +20,6 @@ body {
     overflow: hidden;
 }
 
-/* Camadas do Avatar e Acessórios */
 #avatar-image,
 .layer {
     position: absolute;
@@ -32,44 +28,9 @@ body {
     object-fit: contain;
 }
 
-/* Categorias de Acessórios */
 .options {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 10px;
-    margin-top: 20px;
-}
-
-.category {
-    text-align: center;
-    margin-top: 10px;
-}
-
-.accessory-button {
-    width: 80px;
-    height: 80px;
-    border: 2px solid #ddd;
-    cursor: pointer;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    box-shadow: -4px 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* Botões Principais */
-#generate-btn, #default-btn, #download-btn {
-    font-family: "Bangers", serif;
-    font-size: 1.2rem;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 8px;
-    color: #fff;
-    cursor: pointer;
-    margin: 10px 5px;
-    transition: background-color 0.3s, transform 0.1s;
-}
-
-#generate-btn { background-color: #000; }
-#default-btn { background-color: #f40000; }
-#download-btn { background-color: #18d500; } 
+    margin-top
