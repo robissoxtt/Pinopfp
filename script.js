@@ -53,4 +53,4 @@ document.querySelectorAll('.accessory-button').forEach(button => {
         const image = button.getAttribute('data-image');
         setAvatarLayer(category, image);
     });
-});
+}); 
