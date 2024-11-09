@@ -1,166 +1,109 @@
 body {
-    font-family: "Bangers", serif;
-    font-weight: 400;
-    font-size: 25rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
-    background-color: rgba(214, 209, 60, 0.51);
-    
+  font-family: "Bangers", serif;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  background-color: #f9f9f9;
 }
 
 .container {
-    text-align: center;
-    margin-top: 0; 
-    font-size: 2rem;
-    
+  text-align: center;
 }
-
-
-.buttons-container {
- 
-    top: 625px; /* Position them from the top of the viewport */
-    left: 162%; /* Center the container horizontally */
-  
- 
-}
-
-#generate-btn, #default-btn, #download-btn {
-    font-family: "Bangers", serif;
-    font-weight: 439;
-    font-size: 2rem;
-    padding: 10px 15px; /* Add padding for buttons */
-    border: none; /* Remove border */
-    border-radius: 8px; /* Round the corners */
-    color: #fff; /* Text color */
-}
-
-#generate-btn {
-    background-color: #000; /* Button color */
-}
-
-#default-btn {
-    background-color: #f40000; /* Button color */
-}
-
-#download-btn {
-    background-color: #18d500; /* Button color */
-}
-
-
-
 
 .avatar-display {
-    width: 1000px; /* Keep this width or adjust as needed */
-    height: 1000px; /* Keep this height or adjust as needed */
-    justify-content: center;
-    align-items: center;
-    
-    z-index: 10; /* Ensure it’s on top of other elements */
-    
+  width: 500px;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  margin: 20px auto;
+  position: relative;
+  overflow: hidden;
 }
-/* Camadas de acessórios */
-#avatar-image,
+
+#background-layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0; /* Backgrounds at the back */
+}
+
+#avatar-image, .layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  z-index: 1; /* Default for avatar and accessories */
+}
+
 .layer {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    z-index: 1; /* Garante que o avatar e acessórios fiquem acima do background */
-}
-
-.layer {
-    z-index: 0;
-    
-}
-
-/* Icone do corpo padrão para os botões de acessório */
-.options button {
-
-    width: 80px;
-    height: 80px;
-    border: 2px solid #ddd;
-    margin: 5px;
-    cursor: pointer;
-    background-image: url('images/default/default_pino.png'); /* Corpo padrão */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    position: relative;
-    box-shadow: -4px 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-}
-
-/* Imagens de acessórios dentro dos botões */
-.options button img {
-    
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1; /* Garante que os acessórios fiquem acima do corpo padrão */
-}
-
-button {
-    padding: 10px 10px;
-    margin: 10px 5px;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.1s;
-}
-
-
-
-.options button {
-    width: 80px;
-    height: 80px;
-    margin: 53px;
-    background-size: cover;
-    position: relative;
-    border: 2px solid #ddd;
-}
-
-.options button img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.slider {
-    display: flex; /* Use flexbox to align items */
-    align-items: center; /* Center items vertically */
+  z-index: 2; /* For other layers, you can adjust later */
 }
 
 .options {
-    display: flex; /* Use flexbox for options */
-    overflow: hidden; /* Hide overflow to maintain the view */
-    width: 853px; /* Set a fixed width for the options */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .options button {
-    width: 200px; /* Button width */
-    height: 200px; /* Button height */
-    margin: 5px;
-    background-size: cover; /* Adjust for the background image */
-    position: relative;
-    border: 2px solid #ddd; /* Border for the buttons */
+  width: 80px;
+  height: 80px;
+  border: 2px solid #ddd;
+  margin: 5px;
+  cursor: pointer;
+  background-image: url('images/default/default_pino.png'); /* Default Pino background */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
 }
 
-/* Optional styles to make buttons more visible */
-.prev, .next {
-    background-color: #ebf500; /* Light background for buttons */
-    border: none; /* No border */
-    cursor: pointer; /* Pointer cursor on hover */
-    padding: -8px; /* Padding for buttons */
-    font-size: 120px; /* Font size for arrows */
-    z-index: 1; /* Ensure buttons are on top */
+.options button img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1; /* Keeps accessories above default body */
 }
 
+button {
+  padding: 10px 15px;
+  margin: 10px 5px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.1s;
+}
 
+#generate-btn {
+  background-color: #000;
+  color: #fff;
+}
 
+#default-btn {
+  background-color: #f40000;
+  color: #fff;
+}
+
+#download-btn {
+  background-color: #18d500;
+  color: #fff;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  width: 100%;
+  position: relative; /* Changed from fixed to relative */
+}
