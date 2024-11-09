@@ -1,10 +1,14 @@
 
 h1 {
+    
   font-size: 95px; /* Increases the font size of the main title */
     color: #fff;
     background-color: #000000;
     box-shadow: -17px 16px 6px rgba(0, 0, 0, 0.3);
     border-radius: 8px;
+    text-align: center;
+    align-items: center;
+   
 }
 h2, h3 {
   font-size: 59px; /* Aumenta o tamanho das categorias */
@@ -12,7 +16,7 @@ h2, h3 {
 body {
   font-family: "Bangers", serif;
   font-weight: 400;
-  display: flex;
+ 
   justify-content: center;
   align-items: center;
   min-height: 100vh;
