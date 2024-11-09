@@ -52,6 +52,8 @@
 
 
 
+
+
 .avatar-display {
     width: 500px; /* Keep this width or adjust as needed */
     height: 500px; /* Keep this height or adjust as needed */
@@ -60,6 +62,107 @@
     z-index: 10; /* Ensure it’s on top of other elements */
     
 }
+/* Camadas de acessórios */
+#avatar-image,
+.layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    z-index: 1; /* Garante que o avatar e acessórios fiquem acima do background */
+}
+
+.layer {
+    z-index: 0;
+    
+}
+
+/* Icone do corpo padrão para os botões de acessório */
+.options button {
+
+    width: 80px;
+    height: 80px;
+    border: 2px solid #ddd;
+    margin: 5px;
+    cursor: pointer;
+    background-image: url('images/default/default_pino.png'); /* Corpo padrão */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    box-shadow: -4px 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+/* Imagens de acessórios dentro dos botões */
+.options button img {
+    
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1; /* Garante que os acessórios fiquem acima do corpo padrão */
+}
+
+button {
+    padding: 10px 10px;
+    margin: 10px 5px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+
+
+.options button {
+    width: 80px;
+    height: 80px;
+    margin: 53px;
+    background-size: cover;
+    position: relative;
+    border: 2px solid #ddd;
+}
+
+.options button img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slider {
+    display: flex; /* Use flexbox to align items */
+    align-items: center; /* Center items vertically */
+}
+
+.options {
+    display: flex; /* Use flexbox for options */
+    overflow: hidden; /* Hide overflow to maintain the view */
+    width: 853px; /* Set a fixed width for the options */
+}
+
+.options button {
+    width: 200px; /* Button width */
+    height: 200px; /* Button height */
+    margin: 5px;
+    background-size: cover; /* Adjust for the background image */
+    position: relative;
+    border: 2px solid #ddd; /* Border for the buttons */
+}
+
+/* Optional styles to make buttons more visible */
+.prev, .next {
+    background-color: #ebf500; /* Light background for buttons */
+    border: none; /* No border */
+    cursor: pointer; /* Pointer cursor on hover */
+    padding: -8px; /* Padding for buttons */
+    font-size: 120px; /* Font size for arrows */
+    z-index: 1; /* Ensure buttons are on top */
+}
+
 /* Camadas de acessórios */
 #avatar-image,
 .layer {
