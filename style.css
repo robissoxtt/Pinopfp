@@ -64,6 +64,11 @@ body {
 .options {
  
   justify-content: center;
+    display: flex; /* Exibe os itens em uma linha */
+  flex-wrap: nowrap; /* Impede que os itens quebrem para uma nova linha */
+  gap: 10px; /* Espaçamento entre os itens */
+  overflow-x: auto; /* Adiciona rolagem horizontal se os itens ultrapassarem a largura da tela */
+  width: 100%; /* Garante que o contêiner ocupe toda a largura disponível */
 }
 
 .options button {
@@ -77,6 +82,8 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
+    display: flex;
+     flex-wrap: nowrap; 
     
 }
 
