@@ -2,7 +2,7 @@
 body {
     font-family: "Bangers", serif;
     font-weight: 400;
-    font-size: 2rem; /* Adjust font size */
+    font-size: 1.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -14,25 +14,29 @@ body {
 /* Container for the page */
 .container {
     text-align: center;
-    font-size: 2rem;
+    margin-top: 50px;
 }
 
-/* Buttons container */
+/* Avatar Display */
+.avatar-display {
+    width: 500px;
+    height: 500px;
+    position: relative;
+    margin: 0 auto; /* Center the avatar display */
+    overflow: hidden;
+}
+
+/* Buttons container - fixed in place and centered */
 .buttons-container {
-    position: fixed; /* Keep buttons in place */
-    top: 650px; /* Adjust based on your needs */
-    left: 50%;
-    transform: translateX(-50%); /* Center horizontally */
-    z-index: 10;
     display: flex;
     gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
 }
 
-/* Button Styles */
 #generate-btn, #default-btn, #download-btn {
     font-family: "Bangers", serif;
-    font-weight: 439;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     padding: 10px 15px;
     border: none;
     border-radius: 8px;
@@ -42,115 +46,42 @@ body {
 }
 
 #generate-btn {
-    background-color: #000; /* Black background */
+    background-color: #000;
 }
 
 #default-btn {
-    background-color: #f40000; /* Red background */
+    background-color: #f40000;
 }
 
 #download-btn {
-    background-color: #18d500; /* Green background */
+    background-color: #18d500;
 }
 
-/* Avatar Display */
-.avatar-display {
-    width: 500px; /* Adjust width */
-    height: 500px; /* Adjust height */
-    position: relative;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%); /* Center horizontally */
-    z-index: 10;
+/* Accessory Options */
+.options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
 }
 
-#avatar-image, .layer {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    z-index: 1;
-}
-
-/* Button Icons for Accessories */
-.options button {
+.accessory-button {
     width: 80px;
     height: 80px;
     border: 2px solid #ddd;
-    margin: 5px;
+    border-radius: 8px;
     cursor: pointer;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
-    box-shadow: -4px 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 1;
 }
 
-/* Image inside accessory buttons */
-.options button img {
+/* Accessory button images */
+.accessory-button img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-}
-
-/* Slider for accessory selection */
-.slider {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    overflow-x: scroll; /* Allow scrolling */
-}
-
-.options {
-    display: flex;
-    gap: 10px;
-}
-
-.options button {
-    width: 150px;
-    height: 150px;
-    margin: 10px;
-    background-size: cover;
-    position: relative;
-    border: 2px solid #ddd;
-}
-
-/* Optional: Hover effect for buttons */
-.options button:hover {
-    opacity: 0.8;
-}
-
-/* Pagination buttons (Next/Previous) */
-.prev, .next {
-    background-color: #ebf500;
-    border: none;
-    cursor: pointer;
-    font-size: 40px;
-    padding: 10px;
-    z-index: 2;
-}
-
-/* Improve responsiveness */
-@media (max-width: 768px) {
-    .avatar-display {
-        width: 300px;
-        height: 300px;
-    }
-    .buttons-container {
-        top: 550px; /* Adjust top position */
-    }
-    #generate-btn, #default-btn, #download-btn {
-        font-size: 1.2rem;
-        padding: 8px 12px;
-    }
-    .options button {
-        width: 60px;
-        height: 60px;
-    }
+    border-radius: 8px;
 }
