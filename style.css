@@ -88,24 +88,25 @@ body {
   justify-content: space-between; /* Coloca os botões nas extremidades */
   align-items: center; /* Alinha os itens verticalmente no centro */
   position: relative;
-    margin-right: 50px; /* Aumenta o espaço à direita da seta "❮" */
-     margin-left: 50px;
+    margin-right: 5px; /* Aumenta o espaço à direita da seta "❮" */
+     margin-left: 5px;
+    
 }
 
 .slider button {
   z-index: 2; /* Garante que as setas fiquem acima das opções */
-  background-color: #ff7f0e; /* Cor do botão */
+  background-color: rgba(44, 38, 33, 0); /* Cor do botão */
   border: none;
-  width: -25px; /* Define uma largura fixa para o botão */
-  height: 60px; /* Define uma altura fixa para o botão */
-  font-size: 56px; /* Tamanho da fonte */
+  width: -1px; /* Define uma largura fixa para o botão */
+  height:1px; /* Define uma altura fixa para o botão */
+  font-size: 98px; /* Tamanho da fonte */
   padding: 24; /* Remove qualquer padding extra que pode afetar o tamanho */
   cursor: pointer;
   margin: 0 6px; /* Espaço entre os botões */
   display: flex; /* Usado para alinhar o conteúdo do botão */
   justify-content: center; /* Alinha o conteúdo do botão horizontalmente */
   align-items: center; /* Alinha o conteúdo do botão verticalmente */
-    
+    color: rgb(0, 0, 0)
     
 }
 
