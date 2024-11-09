@@ -105,8 +105,8 @@ body {
   z-index: 2; /* Garante que as setas fiquem acima das opções */
   background-color: rgba(44, 38, 33, 0); /* Cor do botão */
   border: none;
-  width: 50px; /* Define uma largura fixa para o botão */
-  height: 50px; /* Define uma altura fixa para o botão */
+  width: 3px; /* Define uma largura fixa para o botão */
+  height: 3px; /* Define uma altura fixa para o botão */
   font-size: 138px; /* Tamanho da fonte */
   padding: 31; /* Remove qualquer padding extra que pode afetar o tamanho */
   cursor: pointer;
