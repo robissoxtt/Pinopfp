@@ -64,26 +64,19 @@ body {
 .options {
  
   justify-content: center;
-    display: flex; /* Exibe os itens em uma linha */
-  flex-wrap: nowrap; /* Impede que os itens quebrem para uma nova linha */
-  gap: 10px; /* Espaçamento entre os itens */
-  overflow-x: auto; /* Adiciona rolagem horizontal se os itens ultrapassarem a largura da tela */
-  width: 100%; /* Garante que o contêiner ocupe toda a largura disponível */
 }
 
 .options button {
-  width: 200px;
-  height: 200px;
-  border: 37px solid #ddd;
-  margin: 5px;
+  width: 80px;
+  height: 80px;
+  border: 21px solid #ddd;
+  margin: 2px;
   cursor: pointer;
   background-image: url('images/default/default_pino.png'); /* Default Pino background */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
-    display: flex;
-     flex-wrap: nowrap; 
     
 }
 
@@ -103,8 +96,7 @@ body {
   justify-content: space-between; /* Coloca os botões nas extremidades */
   align-items: center; /* Alinha os itens verticalmente no centro */
   position: relative;
-    margin-right: 1px; /* Aumenta o espaço à direita da seta "❮" */
-     margin-left: 1px;
+    
      display: flex;
     
 }
@@ -113,12 +105,12 @@ body {
   z-index: 2; /* Garante que as setas fiquem acima das opções */
   background-color: rgba(44, 38, 33, 0); /* Cor do botão */
   border: none;
-  width: 143px; /* Define uma largura fixa para o botão */
-  height: 300px; /* Define uma altura fixa para o botão */
-  font-size: 153px; /* Tamanho da fonte */
-  padding: 3; /* Remove qualquer padding extra que pode afetar o tamanho */
+  width: 50px; /* Define uma largura fixa para o botão */
+  height: 50px; /* Define uma altura fixa para o botão */
+  font-size: 138px; /* Tamanho da fonte */
+  padding: 31; /* Remove qualquer padding extra que pode afetar o tamanho */
   cursor: pointer;
-  margin: 0 1px; /* Espaço entre os botões */
+  margin: 0 0 px; /* Espaço entre os botões */
   
   justify-content: center; /* Alinha o conteúdo do botão horizontalmente */
   align-items: center; /* Alinha o conteúdo do botão verticalmente */
