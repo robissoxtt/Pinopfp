@@ -67,9 +67,9 @@ body {
 }
 
 .options button {
-  width: 120px;
-  height: 120px;
-  border: 36px solid #ddd;
+  width: 200px;
+  height: 200px;
+  border: 37px solid #ddd;
   margin: 5px;
   cursor: pointer;
   background-image: url('images/default/default_pino.png'); /* Default Pino background */
@@ -88,6 +88,7 @@ body {
   top: 0;
   left: 0;
   z-index: 1; /* Keeps accessories above default body */
+    
 }
 
 .slider {
@@ -97,6 +98,7 @@ body {
   position: relative;
     margin-right: 1px; /* Aumenta o espaço à direita da seta "❮" */
      margin-left: 1px;
+     display: flex;
     
 }
 
@@ -104,13 +106,13 @@ body {
   z-index: 2; /* Garante que as setas fiquem acima das opções */
   background-color: rgba(44, 38, 33, 0); /* Cor do botão */
   border: none;
-  width:30; /* Define uma largura fixa para o botão */
-  height:30px; /* Define uma altura fixa para o botão */
-  font-size: 98px; /* Tamanho da fonte */
+  width: 143px; /* Define uma largura fixa para o botão */
+  height: 300px; /* Define uma altura fixa para o botão */
+  font-size: 138px; /* Tamanho da fonte */
   padding: 29; /* Remove qualquer padding extra que pode afetar o tamanho */
   cursor: pointer;
-  margin: 0 55px; /* Espaço entre os botões */
-  /* Usado para alinhar o conteúdo do botão */
+  margin: 0 7px; /* Espaço entre os botões */
+  
   justify-content: center; /* Alinha o conteúdo do botão horizontalmente */
   align-items: center; /* Alinha o conteúdo do botão verticalmente */
     color: rgb(0, 0, 0)
@@ -127,12 +129,14 @@ body {
 }
 
 .options button {
-  width: 180px;
-  height:180px;
+  width: 250px;
+  height:250px;
   border: 2px solid #ddd;
   background-image: url('images/default/default_pino.png');
   background-size: cover;
   background-position: center;
+    
+    
 }
 
 
