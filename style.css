@@ -1,6 +1,6 @@
 
 h1 {
-  font-size: 87px; /* Increases the font size of the main title */
+  font-size: 144px; /* Increases the font size of the main title */
 }
 h2, h3 {
   font-size: 59px; /* Aumenta o tamanho das categorias */
@@ -88,8 +88,8 @@ body {
   justify-content: space-between; /* Coloca os botões nas extremidades */
   align-items: center; /* Alinha os itens verticalmente no centro */
   position: relative;
-    margin-right: 5px; /* Aumenta o espaço à direita da seta "❮" */
-     margin-left: 5px;
+    margin-right: 50px; /* Aumenta o espaço à direita da seta "❮" */
+     margin-left: 50px;
     
 }
 
@@ -102,7 +102,7 @@ body {
   font-size: 98px; /* Tamanho da fonte */
   padding: 29; /* Remove qualquer padding extra que pode afetar o tamanho */
   cursor: pointer;
-  margin: 0 3px; /* Espaço entre os botões */
+  margin: 0 2px; /* Espaço entre os botões */
   display: flex; /* Usado para alinhar o conteúdo do botão */
   justify-content: center; /* Alinha o conteúdo do botão horizontalmente */
   align-items: center; /* Alinha o conteúdo do botão verticalmente */
@@ -137,8 +137,9 @@ body {
 }
 
 #generate-btn, #default-btn, #download-btn {
-  padding: 10px 20px; /* Ajuste no padding dos botões */
-  font-size: 16px; /* Tamanho da fonte dos botões */
+ font-family: "Bangers", serif;
+  padding: 39px 20px; /* Ajuste no padding dos botões */
+  font-size: 50px; /* Tamanho da fonte dos botões */
   border: none; /* Remove a borda padrão dos botões */
   border-radius: 8px; /* Borda arredondada para os botões */
   cursor: pointer; /* Aplica o cursor de "mãozinha" ao passar sobre o botão */
