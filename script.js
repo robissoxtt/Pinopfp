@@ -142,9 +142,9 @@ generateBtn.addEventListener('click', () => {
   const randomBased = accessories.based[Math.floor(Math.random() * accessories.based.length)];
 
   // Apply random selections
-  toggleCategoryImage('front-layer', `images/front/${randomFront}`, 3);
+  toggleCategoryImage('front-layer', `images/front/${randomFront}`, 7);
   toggleCategoryImage('hat-layer', `images/hats/${randomHat}`, 4);
-  toggleCategoryImage('eye-layer', `images/glasses/${randomGlasses}`, 3);
+  toggleCategoryImage('eye-layer', `images/glasses/${randomGlasses}`, );
   toggleCategoryImage('clothes-layer', `images/clothes/${randomClothes}`, 2);
   toggleCategoryImage('mouth-layer', `images/mouth/${randomMouth}`, 6);
   
