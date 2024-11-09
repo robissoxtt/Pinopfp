@@ -97,12 +97,12 @@ body {
   z-index: 2; /* Garante que as setas fiquem acima das opções */
   background-color: rgba(44, 38, 33, 0); /* Cor do botão */
   border: none;
-  width: -1px; /* Define uma largura fixa para o botão */
-  height:1px; /* Define uma altura fixa para o botão */
+  width:30; /* Define uma largura fixa para o botão */
+  height:30px; /* Define uma altura fixa para o botão */
   font-size: 98px; /* Tamanho da fonte */
-  padding: 24; /* Remove qualquer padding extra que pode afetar o tamanho */
+  padding: 29; /* Remove qualquer padding extra que pode afetar o tamanho */
   cursor: pointer;
-  margin: 0 6px; /* Espaço entre os botões */
+  margin: 0 3px; /* Espaço entre os botões */
   display: flex; /* Usado para alinhar o conteúdo do botão */
   justify-content: center; /* Alinha o conteúdo do botão horizontalmente */
   align-items: center; /* Alinha o conteúdo do botão verticalmente */
@@ -120,8 +120,8 @@ body {
 }
 
 .options button {
-  width: 200px;
-  height:200px;
+  width: 180px;
+  height:180px;
   border: 2px solid #ddd;
   background-image: url('images/default/default_pino.png');
   background-size: cover;
