@@ -62,7 +62,7 @@ body {
 }
 
 .options {
-  display: flex;
+ 
   justify-content: center;
 }
 
@@ -91,7 +91,7 @@ body {
 }
 
 .slider {
-  display: flex; /* Para dispor os botões e as opções lado a lado */
+   /* Para dispor os botões e as opções lado a lado */
   justify-content: space-between; /* Coloca os botões nas extremidades */
   align-items: center; /* Alinha os itens verticalmente no centro */
   position: relative;
@@ -110,7 +110,7 @@ body {
   padding: 29; /* Remove qualquer padding extra que pode afetar o tamanho */
   cursor: pointer;
   margin: 0 55px; /* Espaço entre os botões */
-  display: flex; /* Usado para alinhar o conteúdo do botão */
+  /* Usado para alinhar o conteúdo do botão */
   justify-content: center; /* Alinha o conteúdo do botão horizontalmente */
   align-items: center; /* Alinha o conteúdo do botão verticalmente */
     color: rgb(0, 0, 0)
@@ -119,7 +119,7 @@ body {
 
 
 .options {
-  display: flex; /* Flexbox para alinhar as opções horizontalmente */
+  /* Flexbox para alinhar as opções horizontalmente */
   justify-content: center;
   gap: 1px; /* Espaçamento entre as opções */
   width: 100%; /* Para garantir que as opções ocupem toda a largura disponível */
@@ -137,7 +137,7 @@ body {
 
 
 #buttons-container {
-  display: flex; /* Coloca os botões lado a lado */
+  
   justify-content: center; /* Centraliza os botões dentro do contêiner */
   gap: 15px; /* Espaçamento entre os botões */
   margin-top: 20px; /* Adiciona uma margem superior para o contêiner */
