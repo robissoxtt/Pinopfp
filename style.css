@@ -1,7 +1,6 @@
 /* Estilos Globais */
 body {
     font-family: "Bangers", serif;
-    font-weight: 400;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,16 +14,16 @@ body {
     text-align: center;
 }
 
-/* Exibição do Avatar */
+/* Área de Exibição do Avatar */
 .avatar-display {
     width: 500px;
     height: 500px;
-    margin: 0 auto; /* Centraliza horizontalmente */
+    margin: 0 auto;
     position: relative;
     overflow: hidden;
 }
 
-/* Camadas de Avatar e Acessórios */
+/* Camadas do Avatar e Acessórios */
 #avatar-image,
 .layer {
     position: absolute;
@@ -33,7 +32,7 @@ body {
     object-fit: contain;
 }
 
-/* Opções de Acessórios */
+/* Categorias de Acessórios */
 .options {
     display: flex;
     justify-content: center;
@@ -42,45 +41,35 @@ body {
     margin-top: 20px;
 }
 
-.options button {
+.category {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.accessory-button {
     width: 80px;
     height: 80px;
     border: 2px solid #ddd;
-    margin: 5px;
     cursor: pointer;
-    background-image: url('images/default/default_pino.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     box-shadow: -4px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Imagens de acessórios dentro dos botões */
-.options button img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* Botões de ação principais */
+/* Botões Principais */
 #generate-btn, #default-btn, #download-btn {
+    font-family: "Bangers", serif;
+    font-size: 1.2rem;
     padding: 10px 15px;
-    margin: 10px 5px;
     border: none;
     border-radius: 8px;
-    font-size: 1rem;
     color: #fff;
     cursor: pointer;
+    margin: 10px 5px;
+    transition: background-color 0.3s, transform 0.1s;
 }
 
-#generate-btn {
-    background-color: #000;
-}
-
-#default-btn {
-    background-color: #f40000;
-}
-
-#download-btn {
-    background-color: #18d500;
-}
+#generate-btn { background-color: #000; }
+#default-btn { background-color: #f40000; }
+#download-btn { background-color: #18d500; }
