@@ -1,11 +1,12 @@
 body {
     font-family: "Bangers", serif;
+    font-weight: 400;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    background-color: rgba(214, 209, 60, 0.51);
+    background-color: #f9f9f9;
 }
 
 .container {
@@ -13,56 +14,178 @@ body {
 }
 
 .avatar-display {
-    width: 500px;
-    height: 500px;
-    margin: 0 auto;
-    position: relative;
-    overflow: hidden;
+    width: 400px; /* Keep this width or adjust as needed */
+    height: 400px; /* Keep this height or adjust as needed */
+    position: fixed; /* Keep it fixed */
+    top: 18px; /* Position it from the top of the viewport */
+    left: 50%; /* Center it horizontally */
+    transform: translateX(-50%); /* Correct the centering */
+    overflow: visible; /* Ensure overflow is visible */
+    z-index: 10; /* Ensure it’s on top of other elements */
 }
 
-#avatar-image,
+/* Adjust any other styles to ensure space below the avatar */
+.container {
+    margin-top: 346px; /* Ensure there's space for the fixed avatar */
+    text-align: center;
+}
+
 .layer {
+    width: 100%; /* Ensure layers fit within the container */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Make sure images are contained within the bounds */
+}
+
+/* Camada de fundo */
+#background-layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0; /* Garante que o background fique atrás */
+}
+
+/* Camadas de acessórios */
+#avatar-image, .layer {
     position: absolute;
     width: 100%;
     height: 100%;
     object-fit: contain;
+    z-index: 1; /* Garante que o avatar e acessórios fiquem acima do background */
 }
 
-.options {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 20px;
+.layer {
+    z-index: 2;
 }
 
-.category {
-    text-align: center;
-    margin-top: 10px;
-}
-
-.accessory-button {
+/* Icone do corpo padrão para os botões de acessório */
+.options button {
     width: 80px;
     height: 80px;
     border: 2px solid #ddd;
+    margin: 5px;
     cursor: pointer;
+    background-image: url('images/default/default_pino.png'); /* Corpo padrão */
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
     box-shadow: -4px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-#generate-btn, #default-btn, #download-btn {
-    font-family: "Bangers", serif;
-    font-size: 1.2rem;
+/* Imagens de acessórios dentro dos botões */
+.options button img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1; /* Garante que os acessórios fiquem acima do corpo padrão */
+}
+
+button {
     padding: 10px 15px;
+    margin: 10px 5px;
     border: none;
     border-radius: 8px;
-    color: #fff;
+    font-size: 1rem;
     cursor: pointer;
-    margin: 10px 5px;
     transition: background-color 0.3s, transform 0.1s;
 }
 
-#generate-btn { background-color: #000; }
-#default-btn { background-color: #f40000; }
-#download-btn { background-color: #18d500; }
+#generate-btn {
+    font-family: "Bangers", serif;
+    font-weight: 400;
+    background-color: #000;
+    color: #fff;
+}
+
+#default-btn {
+    font-family: "Bangers", serif;
+    font-weight: 400;
+    background-color: #f40000;
+    color: #fff;
+}
+
+#download-btn {
+    font-family: "Bangers", serif;
+    font-weight: 400;
+    background-color: #18d500;
+    color: #fff;
+}
+
+.options button {
+    width: 80px;
+    height: 80px;
+    margin: 5px;
+    background-size: cover;
+    position: relative;
+    border: 2px solid #ddd;
+}
+
+.options button img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slider {
+    display: flex; /* Use flexbox to align items */
+    align-items: center; /* Center items vertically */
+}
+
+.options {
+    display: flex; /* Use flexbox for options */
+    overflow: hidden; /* Hide overflow to maintain the view */
+    width: 441px; /* Set a fixed width for the options */
+}
+
+.options button {
+    width: 100px; /* Button width */
+    height: 100px; /* Button height */
+    margin: 5px;
+    background-size: cover; /* Adjust for the background image */
+    position: relative;
+    border: 2px solid #ddd; /* Border for the buttons */
+}
+
+/* Optional styles to make buttons more visible */
+.prev, .next {
+    background-color: #ebf500; /* Light background for buttons */
+    border: none; /* No border */
+    cursor: pointer; /* Pointer cursor on hover */
+    padding: 10px; /* Padding for buttons */
+    font-size: 38px; /* Font size for arrows */
+    z-index: 1; /* Ensure buttons are on top */
+}
+
+/* New styles for buttons to float with the avatar */
+#buttons-container {
+    position: fixed; /* Keep the buttons fixed */
+    top: 450px; /* Position them just below the avatar display */
+    left: 50%; /* Center them horizontally */
+    transform: translateX(-50%); /* Center adjustment */
+    display: flex; /* Align buttons in a row */
+    gap: 10px; /* Space between buttons */
+    z-index: 10; /* Ensure above other elements */
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    .avatar-display {
+        width: 80%; /* Adjust width on smaller screens */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    #buttons-container {
+        top: 500px; /* Adjust button position for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    #buttons-container {
+        flex-direction: column; /* Stack buttons vertically on very small screens */
+        top: 520px; /* Adjust position accordingly */
+    }
+}
