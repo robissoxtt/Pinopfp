@@ -19,7 +19,7 @@ body {
     position: fixed; /* Keep it fixed */
     top: 18px; /* Position it from the top of the viewport */
     left: 50%; /* Center it horizontally */
-    transform: translateX(50%); /* Correct the centering */
+    transform: translateX(-100%); /* Correct the centering */
     overflow: visible; /* Ensure overflow is visible */
     z-index: 10; /* Ensure it’s on top of other elements */
 }
