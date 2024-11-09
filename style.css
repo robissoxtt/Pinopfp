@@ -1,6 +1,10 @@
 
 h1 {
-  font-size: 144px; /* Increases the font size of the main title */
+  font-size: 95px; /* Increases the font size of the main title */
+    color: #fff;
+    background-color: #000000;
+    box-shadow: -17px 16px 6px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
 }
 h2, h3 {
   font-size: 59px; /* Aumenta o tamanho das categorias */
@@ -55,14 +59,13 @@ body {
 
 .options {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
 }
 
 .options button {
   width: 120px;
   height: 120px;
-  border: 2px solid #ddd;
+  border: 36px solid #ddd;
   margin: 5px;
   cursor: pointer;
   background-image: url('images/default/default_pino.png'); /* Default Pino background */
@@ -88,8 +91,8 @@ body {
   justify-content: space-between; /* Coloca os botões nas extremidades */
   align-items: center; /* Alinha os itens verticalmente no centro */
   position: relative;
-    margin-right: 50px; /* Aumenta o espaço à direita da seta "❮" */
-     margin-left: 50px;
+    margin-right: 1px; /* Aumenta o espaço à direita da seta "❮" */
+     margin-left: 1px;
     
 }
 
@@ -102,7 +105,7 @@ body {
   font-size: 98px; /* Tamanho da fonte */
   padding: 29; /* Remove qualquer padding extra que pode afetar o tamanho */
   cursor: pointer;
-  margin: 0 2px; /* Espaço entre os botões */
+  margin: 0 55px; /* Espaço entre os botões */
   display: flex; /* Usado para alinhar o conteúdo do botão */
   justify-content: center; /* Alinha o conteúdo do botão horizontalmente */
   align-items: center; /* Alinha o conteúdo do botão verticalmente */
