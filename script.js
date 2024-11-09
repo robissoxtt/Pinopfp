@@ -154,30 +154,13 @@ generateBtn.addEventListener('click', () => {
 });
 
 // Download functionality
-downloadBtn.addEventListener('click', async () => {
-    try {
-        // Create a canvas with the desired resolution
-        const canvas = document.createElement('canvas');
-        canvas.width = 500; // Set the desired width
-        canvas.height = 500; // Set the desired height
-
-        const ctx = canvas.getContext('2d');
-
-        // Draw the avatar display onto the canvas
-        const avatarClone = await html2canvas(avatarDisplay, { useCORS: true });
-        ctx.drawImage(avatarClone, 0, 0, canvas.width, canvas.height);
-
-        // Create the downloadable image URL
-        const imageUrl = canvas.toDataURL('image/png');
-
-        // Create a link element
-        const link = document.createElement('a');
-        link.href = imageUrl;
-        link.download = 'PinoPFP.png'; // Name of the downloaded file
-        document.body.appendChild(link); // Append to body to make it work in Firefox
-        link.click(); // Trigger the download
-        document.body.removeChild(link); // Remove the link from the document
-    } catch (error) {
-        console.error("Error capturing and downloading the image:", error);
-    }
+function downloadCanvas() {
+    const canvas = document.getElementById('myCanvas'); // Your canvas ID
+    const link = document.createElement('a');
+    link.href = canvas.toDataURL('image/png'); // Convert canvas to image URL
+    link.download = 'avatar.png'; // Name of the downloaded file
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
 });
