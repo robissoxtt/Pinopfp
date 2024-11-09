@@ -27,21 +27,3 @@ body {
     height: 100%;
     object-fit: contain;
 }
-
-.buttons-container {
-    margin-top: 20px;
-}
-
-button {
-    font-family: "Bangers", serif;
-    font-size: 1.2rem;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 8px;
-    color: #fff;
-    cursor: pointer;
-    margin: 10px 5px;
-    transition: background-color 0.3s, transform 0.1s;
-}
-
-#
