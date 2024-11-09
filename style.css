@@ -55,11 +55,8 @@
 .avatar-display {
     width: 500px; /* Keep this width or adjust as needed */
     height: 500px; /* Keep this height or adjust as needed */
-    
     top: 20px; /* Position it from the top of the viewport */
     left: 0%; /* Center it horizontally */
-    transform: translateX(50%); /* Correct the centering */
-    
     z-index: 10; /* Ensure it’s on top of other elements */
     
 }
