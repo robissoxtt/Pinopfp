@@ -1,4 +1,4 @@
-/* Global Styles */
+/* Estilos Globais */
 body {
     font-family: "Bangers", serif;
     display: flex;
@@ -9,38 +9,36 @@ body {
     background-color: rgba(214, 209, 60, 0.51);
 }
 
-/* Container for Avatar Display */
+/* Container Principal */
+.container {
+    text-align: center;
+}
+
+/* Avatar Display Centralizado */
 .avatar-display {
     width: 500px;
     height: 500px;
+    margin: 0 auto;
     position: relative;
-    margin: 0 auto; /* Center the display */
-    top: 20px;
-    z-index: 10;
+    overflow: hidden;
 }
 
-/* Layers for Avatar and Accessories */
-#avatar-image, .layer {
+/* Camada do Avatar e Acessórios */
+#avatar-image,
+.layer {
     position: absolute;
     width: 100%;
     height: 100%;
     object-fit: contain;
-    z-index: 1;
 }
 
-.layer {
-    z-index: 0;
-}
-
-/* Accessory Options Grid */
+/* Botões para Opções de Acessórios */
 .options {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
+    flex-wrap: wrap;
     margin-top: 20px;
-    width: 100%;
-    max-width: 853px; /* Max width for larger screens */
+    gap: 10px;
 }
 
 .options button {
@@ -53,53 +51,33 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    box-shadow: -4px 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-    z-index: 1;
 }
 
-/* Image inside accessory buttons */
-.options button img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* Slider and Next/Previous Buttons */
-.slider {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.prev, .next {
-    background-color: #ebf500;
+/* Botões para Download, Reset e Randomizer */
+#generate-btn, #default-btn, #download-btn {
+    font-family: "Bangers", serif;
+    padding: 10px 15px;
+    margin: 10px 5px;
     border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #fff;
     cursor: pointer;
-    font-size: 40px;
-    padding: 10px;
-    z-index: 1;
 }
 
-/* Responsive Design for Mobile */
+#generate-btn { background-color: #000; }
+#default-btn { background-color: #f40000; }
+#download-btn { background-color: #18d500; }
+
+/* Responsividade Básica */
 @media (max-width: 768px) {
     .avatar-display {
-        width: 90vw; /* Scale to viewport width */
-        height: 90vw; /* Maintain a square aspect ratio */
-    }
-
-    .options {
-        max-width: 100%; /* Full width on mobile */
-        padding: 10px; /* Add padding for better spacing */
+        width: 90vw;
+        height: 90vw;
     }
 
     .options button {
-        width: 60px; /* Smaller size for mobile */
+        width: 60px;
         height: 60px;
-    }
-
-    .prev, .next {
-        font-size: 30px; /* Smaller font size for arrows */
-        padding: 5px;
     }
 }
