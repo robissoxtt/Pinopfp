@@ -158,8 +158,8 @@ downloadBtn.addEventListener('click', async () => {
     try {
         // Create a canvas with the desired resolution
         const canvas = document.createElement('canvas');
-        canvas.width = 1000; // Set the desired width
-        canvas.height = 1000; // Set the desired height
+        canvas.width = 500; // Set the desired width
+        canvas.height = 500; // Set the desired height
 
         const ctx = canvas.getContext('2d');
 
