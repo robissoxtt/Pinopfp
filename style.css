@@ -115,10 +115,10 @@ body {
   border: none;
   width: 143px; /* Define uma largura fixa para o botão */
   height: 300px; /* Define uma altura fixa para o botão */
-  font-size: 138px; /* Tamanho da fonte */
-  padding: 29; /* Remove qualquer padding extra que pode afetar o tamanho */
+  font-size: 153px; /* Tamanho da fonte */
+  padding: 3; /* Remove qualquer padding extra que pode afetar o tamanho */
   cursor: pointer;
-  margin: 0 7px; /* Espaço entre os botões */
+  margin: 0 1px; /* Espaço entre os botões */
   
   justify-content: center; /* Alinha o conteúdo do botão horizontalmente */
   align-items: center; /* Alinha o conteúdo do botão verticalmente */
