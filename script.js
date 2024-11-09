@@ -1,3 +1,4 @@
+
 // Select main elements
 const generateBtn = document.getElementById('generate-btn');
 const defaultBtn = document.getElementById('default-btn');
@@ -110,7 +111,7 @@ generateBtn.addEventListener('click', () => {
 });
 // Função para baixar o avatar
 document.getElementById('download-btn').addEventListener('click', () => {
-    const avatarImage = document.getElementById('avatar-image'); // Pega a imagem do avatar atual
+    const avatarDisplay = document.getElementById('avatar-image'); // Pega a imagem do avatar atual
     const link = document.createElement('a'); // Cria um link de download
     link.href = avatarImage.src; // Define o link para a imagem do avatar
     link.download = 'avatar.png'; // Nome do arquivo para o download
