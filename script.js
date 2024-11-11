@@ -139,17 +139,29 @@ generateBtn.addEventListener('click', () => {
   const randomGlasses = accessories.glasses[Math.floor(Math.random() * accessories.glasses.length)];
   const randomClothes = accessories.clothes[Math.floor(Math.random() * accessories.clothes.length)];
   const randomMouth = accessories.mouth[Math.floor(Math.random() * accessories.mouth.length)];
-  const randomCores = accessories.cores[Math.floor(Math.random() * accessories.cores.length)];
-  const randomBased = accessories.based[Math.floor(Math.random() * accessories.based.length)];
 
-  // Aplica as seleções aleatórias
+  // Escolher aleatoriamente entre Aesthetic (based) ou BG Colors (cores)
+  const randomBackgroundCategory = Math.random() > 0.5 ? 'based' : 'cores'; // 50% de chance para cada
+
+  // Remover o fundo anterior (caso exista)
+  document.querySelectorAll('.layer').forEach(layer => {
+    if (layer.id !== `${randomBackgroundCategory}-layer`) {
+      layer.remove(); // Remove qualquer camada de fundo anterior
+    }
+  });
+
+  // Seleciona aleatoriamente o fundo da categoria escolhida
+  const randomBackgroundImage = accessories[randomBackgroundCategory][Math.floor(Math.random() * accessories[randomBackgroundCategory].length)];
+
+  // Aplica o fundo aleatório (Aesthetic ou BG Colors)
+  addOrReplaceCategoryImage(`${randomBackgroundCategory}-layer`, `images/${randomBackgroundCategory}/${randomBackgroundImage}`, 0);
+
+  // Aplica as seleções aleatórias de outros acessórios
   addOrReplaceCategoryImage('front-layer', `images/front/${randomFront}`, 7);
   addOrReplaceCategoryImage('hat-layer', `images/hats/${randomHat}`, 4);
   addOrReplaceCategoryImage('eye-layer', `images/glasses/${randomGlasses}`, 3);
   addOrReplaceCategoryImage('clothes-layer', `images/clothes/${randomClothes}`, 2);
   addOrReplaceCategoryImage('mouth-layer', `images/mouth/${randomMouth}`, 6);
-  addOrReplaceCategoryImage('cores-layer', `images/cores/${randomCores}`, 0);
-  addOrReplaceCategoryImage('based-layer', `images/based/${randomBased}`, 0);
 });
 
 // Evento para o botão de reset
