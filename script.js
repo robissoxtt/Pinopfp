@@ -137,7 +137,7 @@ generateBtn.addEventListener('click', () => {
   // Função para obter um item aleatório com possibilidade de retornar nulo
   const getRandomWithChance = (category) => {
     // 50% de chance de deixar a categoria vazia
-    if (Math.random() < 0.5) {
+    if (Math.random() < 0.3) {
       return null; // Deixa a categoria vazia
     }
     return category[Math.floor(Math.random() * category.length)]; // Retorna um item aleatório
