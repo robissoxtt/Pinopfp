@@ -12,12 +12,12 @@ avatarImage.onerror = function() {
 // Inicializa as opções de acessórios
 const accessories = {
   front: ['front (1).png', 'front (2).png', 'front (3).png'],
-  hats: ['hat (1).png', 'hat (2).png', 'hat (3).png', 'hat (4).png', 'hat (5).png', 'hat (6).png', 'hat (7).png','hat (8).png', 'hat (9).png'],
-  glasses: ['glasses (1).png', 'glasses (2).png', 'glasses (3).png', 'glasses (4).png', 'glasses (5).png', 'glasses (6).png', 'glasses (7).png', 'glasses (8).png'],
-  clothes: ['clothes (1).png', 'clothes (2).png', 'clothes (3).png', 'clothes (4).png', 'clothes (5).png', 'clothes (6).png', 'clothes (7).png', 'clothes (8).png', 'clothes (9).png'],
+  hats: ['hat (1).png', 'hat (2).png', 'hat (3).png', 'hat (4).png', 'hat (5).png', 'hat (6).png', 'hat (7).png','hat (8).png', 'hat (9).png','hat (10).png', 'hat (11).png'],
+  glasses: ['glasses (1).png', 'glasses (2).png', 'glasses (3).png', 'glasses (4).png', 'glasses (5).png', 'glasses (6).png', 'glasses (7).png', 'glasses (8).png', 'glasses (9).png'],
+  clothes: ['clothes (1).png', 'clothes (2).png', 'clothes (3).png', 'clothes (4).png', 'clothes (5).png', 'clothes (6).png', 'clothes (7).png', 'clothes (8).png', 'clothes (9).png','clothes (10).png','clothes (11).png','clothes (12).png', 'clothes (13).png'],
   mouth: ['mouth (1).png', 'mouth (2).png'],
   cores: ['base (1).png', 'base (2).png', 'base (3).png', 'base (4).png', 'base (5).png', 'base (6).png', 'base (7).png', 'base (8).png'],
-  based: ['aesthetic (1).png', 'aesthetic (2).png', 'aesthetic (3).png', 'aesthetic (4).png']
+  based: ['aesthetic (1).png', 'aesthetic (2).png', 'aesthetic (3).png', 'aesthetic (4).png', 'aesthetic (5).png', 'aesthetic (6).png', 'aesthetic (7).png', 'aesthetic (8).png', 'aesthetic (9).png', 'aesthetic (10).png', 'aesthetic (11).png']
 };
 
 // Carrega o avatar e background padrão
@@ -132,28 +132,78 @@ document.querySelectorAll('.based-option').forEach(option => {
   });
 });
 
-// Evento para o botão de ação do randomizador
+// Evento para o botão de randomização
 generateBtn.addEventListener('click', () => {
-  const randomFront = accessories.front[Math.floor(Math.random() * accessories.front.length)];
-  const randomHat = accessories.hats[Math.floor(Math.random() * accessories.hats.length)];
-  const randomGlasses = accessories.glasses[Math.floor(Math.random() * accessories.glasses.length)];
-  const randomClothes = accessories.clothes[Math.floor(Math.random() * accessories.clothes.length)];
-  const randomMouth = accessories.mouth[Math.floor(Math.random() * accessories.mouth.length)];
-  const randomCores = accessories.cores[Math.floor(Math.random() * accessories.cores.length)];
-  const randomBased = accessories.based[Math.floor(Math.random() * accessories.based.length)];
+  // Função para obter um item aleatório com possibilidade de retornar nulo
+  const getRandomWithChance = (category) => {
+    // 50% de chance de deixar a categoria vazia
+    if (Math.random() < 0.3) {
+      return null; // Deixa a categoria vazia
+    }
+    return category[Math.floor(Math.random() * category.length)]; // Retorna um item aleatório
+  };
 
-  // Aplica as seleções aleatórias
-  addOrReplaceCategoryImage('front-layer', `images/front/${randomFront}`, 7);
-  addOrReplaceCategoryImage('hat-layer', `images/hats/${randomHat}`, 4);
-  addOrReplaceCategoryImage('eye-layer', `images/glasses/${randomGlasses}`, 3);
-  addOrReplaceCategoryImage('clothes-layer', `images/clothes/${randomClothes}`, 2);
-  addOrReplaceCategoryImage('mouth-layer', `images/mouth/${randomMouth}`, 6);
-  addOrReplaceCategoryImage('cores-layer', `images/cores/${randomCores}`, 0);
-  addOrReplaceCategoryImage('based-layer', `images/based/${randomBased}`, 0);
+  // Gerar valores aleatórios para as categorias, com possibilidade de estar vazio
+  const randomFront = getRandomWithChance(accessories.front);
+  const randomHat = getRandomWithChance(accessories.hats);
+  const randomGlasses = getRandomWithChance(accessories.glasses);
+  const randomClothes = getRandomWithChance(accessories.clothes);
+  const randomMouth = getRandomWithChance(accessories.mouth);
+
+  // Escolher aleatoriamente entre Aesthetic (based) ou BG Colors (cores)
+  const randomBackgroundCategory = Math.random() > 0.5 ? 'based' : 'cores'; // 50% de chance para cada
+  const randomBackgroundImage = accessories[randomBackgroundCategory][Math.floor(Math.random() * accessories[randomBackgroundCategory].length)];
+
+  // Remove any previous layers
+  document.querySelectorAll('.layer').forEach(layer => {
+    if (!layer.id.includes('background')) {  // Don't remove background layer
+      layer.remove();
+    }
+  });
+
+  // Garantir que um fundo seja sempre atribuído
+  addOrReplaceCategoryImage('background-layer', `images/${randomBackgroundCategory}/${randomBackgroundImage}`, 0);
+
+  // Aplica as seleções aleatórias de outros acessórios, caso não sejam nulos
+  if (randomFront) addOrReplaceCategoryImage('front-layer', `images/front/${randomFront}`, 7);
+  if (randomHat) addOrReplaceCategoryImage('hat-layer', `images/hats/${randomHat}`, 4);
+  if (randomGlasses) addOrReplaceCategoryImage('eye-layer', `images/glasses/${randomGlasses}`, 3);
+  if (randomClothes) addOrReplaceCategoryImage('clothes-layer', `images/clothes/${randomClothes}`, 2);
+  if (randomMouth) addOrReplaceCategoryImage('mouth-layer', `images/mouth/${randomMouth}`, 6);
 });
 
-// Evento para o botão de reset
-defaultBtn.addEventListener('click', setDefaultAvatar);
+// Função para adicionar ou substituir uma imagem em uma camada
+function addOrReplaceCategoryImage(category, imgSrc, zIndex = 1) {
+  let existingImg = document.getElementById(category);
+
+  // Cria a camada se não existir
+  if (!existingImg) {
+    const img = document.createElement('img');
+    img.src = imgSrc;
+    img.id = category;
+    img.classList.add('layer');
+    img.style.zIndex = zIndex;
+    avatarDisplay.appendChild(img);
+    return img; // Retorna a imagem criada
+  } else {
+    existingImg.src = imgSrc;
+    return existingImg; // Retorna a imagem existente
+  }
+}
+
+// Função de reset, caso o usuário clique em "reset"
+defaultBtn.addEventListener('click', () => {
+  setDefaultAvatar();
+  // Quando o reset é chamado, garantir que o fundo padrão seja aplicado.
+  addOrReplaceCategoryImage('background-layer', "images/default/default_background.png", 0);
+});
+
+// Função para garantir que o avatar tenha um fundo padrão
+function setDefaultAvatar() {
+  document.getElementById('avatar-image').src = "images/default/default_pino.png";
+  document.querySelectorAll('.layer').forEach(layer => layer.remove());
+  addOrReplaceCategoryImage('background-layer', "images/default/default_background.png", 0); // Fundo padrão
+}
 
 // Função de download
 downloadBtn.addEventListener('click', async () => {
