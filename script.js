@@ -12,9 +12,11 @@ avatarImage.onerror = function() {
 // Inicializa as opções de acessórios
 const accessories = {
   front: ['front (1).png', 'front (2).png', 'front (3).png'],
-  hats: ['hat (1).png', 'hat (2).png', 'hat (3).png', 'hat (4).png', 'hat (5).png', 'hat (6).png', 'hat (7).png','hat (8).png', 'hat (9).png','hat (10).png', 'hat (11).png','hat (12).png', 'hat (13).png'],
+  hats: ['hat (1).png', 'hat (2).png', 'hat (3).png', 'hat (4).png', 'hat (5).png', 'hat (6).png', 'hat (7).png','hat (8).png', 'hat (9).png','hat (10).png',
+         'hat (11).png','hat (12).png', 'hat (13).png', 'hat (14).png', 'hat (15).png', 'hat (16).png', 'hat (17).png'],
   glasses: ['glasses (1).png', 'glasses (2).png', 'glasses (3).png', 'glasses (4).png', 'glasses (5).png', 'glasses (6).png', 'glasses (7).png', 'glasses (8).png', 'glasses (9).png'],
-  clothes: ['clothes (1).png', 'clothes (2).png', 'clothes (3).png', 'clothes (4).png', 'clothes (5).png', 'clothes (6).png', 'clothes (7).png', 'clothes (8).png', 'clothes (9).png','clothes (10).png','clothes (11).png','clothes (12).png', 'clothes (13).png','clothes (13).png', 'clothes (14).png'],
+  clothes: ['clothes (1).png', 'clothes (2).png', 'clothes (3).png', 'clothes (4).png', 'clothes (5).png', 'clothes (6).png', 'clothes (7).png', 'clothes (8).png', 'clothes (9).png','clothes (10).png',
+            'clothes (11).png','clothes (12).png', 'clothes (13).png','clothes (13).png', 'clothes (14).png'],
   mouth: ['mouth (1).png', 'mouth (2).png', 'mouth (3).png', 'mouth (4).png'],
   cores: ['base (1).png', 'base (2).png', 'base (3).png', 'base (4).png', 'base (5).png', 'base (6).png', 'base (7).png', 'base (8).png'],
   based: ['aesthetic (1).png', 'aesthetic (2).png', 'aesthetic (3).png', 'aesthetic (4).png', 'aesthetic (5).png', 'aesthetic (6).png', 'aesthetic (7).png', 'aesthetic (8).png', 'aesthetic (9).png', 'aesthetic (10).png', 'aesthetic (11).png']
@@ -135,28 +137,28 @@ document.querySelectorAll('.based-option').forEach(option => {
 // Evento para o botão de randomização
 generateBtn.addEventListener('click', () => {
   // Função para obter um item aleatório com possibilidade de retornar nulo
-  const getRandomWithChance = (category) => {
-    // 50% de chance de deixar a categoria vazia
-    if (Math.random() < 0.3) {
+  const getRandomWithChance = (category, chance = 0.5) => {
+    // Se a chance for menor que o valor fornecido, retorna null (vazio)
+    if (Math.random() < chance) {
       return null; // Deixa a categoria vazia
     }
     return category[Math.floor(Math.random() * category.length)]; // Retorna um item aleatório
   };
 
   // Gerar valores aleatórios para as categorias, com possibilidade de estar vazio
-  const randomFront = getRandomWithChance(accessories.front);
-  const randomHat = getRandomWithChance(accessories.hats);
-  const randomGlasses = getRandomWithChance(accessories.glasses);
-  const randomClothes = getRandomWithChance(accessories.clothes);
-  const randomMouth = getRandomWithChance(accessories.mouth);
+  const randomFront = getRandomWithChance(accessories.front, 0.90);  // 20% de chance de ficar vazio (apenas "front" alterado)
+  const randomHat = getRandomWithChance(accessories.hats, 0.3);    // 50% de chance de ficar vazio (para as outras categorias, por padrão)
+  const randomGlasses = getRandomWithChance(accessories.glasses, 0.3);
+  const randomClothes = getRandomWithChance(accessories.clothes, 0.3);
+  const randomMouth = getRandomWithChance(accessories.mouth, 0.3);
 
   // Escolher aleatoriamente entre Aesthetic (based) ou BG Colors (cores)
   const randomBackgroundCategory = Math.random() > 0.5 ? 'based' : 'cores'; // 50% de chance para cada
   const randomBackgroundImage = accessories[randomBackgroundCategory][Math.floor(Math.random() * accessories[randomBackgroundCategory].length)];
 
-  // Remove any previous layers
+  // Remove qualquer camada anterior
   document.querySelectorAll('.layer').forEach(layer => {
-    if (!layer.id.includes('background')) {  // Don't remove background layer
+    if (!layer.id.includes('background')) {  // Não remove camada de fundo
       layer.remove();
     }
   });
@@ -204,6 +206,7 @@ function setDefaultAvatar() {
   document.querySelectorAll('.layer').forEach(layer => layer.remove());
   addOrReplaceCategoryImage('background-layer', "images/default/default_background.png", 0); // Fundo padrão
 }
+
 
 // Função de download
 downloadBtn.addEventListener('click', async () => {
