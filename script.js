@@ -71,37 +71,6 @@ function addOrReplaceCategoryImage(category, imgSrc, zIndex = 1) {
   }
 }
 
-// Função para configurar a funcionalidade dos sliders
-function setupSlider(slider, options) {
-  const prevButton = slider.querySelector('.prev');
-  const nextButton = slider.querySelector('.next');
-  const optionsContainer = slider.querySelector('.options');
-  
-  let currentIndex = 0;
-
-  function showOptions() {
-    const allOptions = optionsContainer.children;
-    for (let i = 0; i < allOptions.length; i++) {
-      allOptions[i].style.display = (i >= currentIndex && i < currentIndex + 4) ? 'inline-block' : 'none';
-    }
-  }
-
-  prevButton.addEventListener('click', () => {
-    if (currentIndex > 0) {
-      currentIndex -= 1;
-      showOptions();
-    }
-  });
-
-  nextButton.addEventListener('click', () => {
-    if (currentIndex < options.length - 4) {
-      currentIndex += 1;
-      showOptions();
-    }
-  });
-
-  showOptions(); // Chamada inicial para mostrar as opções
-}
 
 // Configura os sliders para cada categoria
 document.querySelectorAll('.slider').forEach(slider => {
@@ -231,15 +200,32 @@ function setDefaultAvatar() {
 // Função de download
 downloadBtn.addEventListener('click', async () => {
     try {
+        // Define um canvas maior para garantir alta qualidade
         const canvas = document.createElement('canvas');
-        canvas.width = 1000;
-        canvas.height = 1000;
+        const scaleFactor = 1; // Fator para aumentar a resolução do canvas
+
+        // Definir o tamanho do canvas considerando a escala de 2x
+        canvas.width = 1000 * scaleFactor; // Dobro da largura
+        canvas.height = 1000 * scaleFactor; // Dobro da altura
 
         const ctx = canvas.getContext('2d');
-        const avatarClone = await html2canvas(avatarDisplay, { useCORS: true });
-        ctx.drawImage(avatarClone, 0, 0, canvas.width, canvas.height);
+        ctx.scale(scaleFactor, scaleFactor); // Ajusta o contexto para escalar o conteúdo
 
-        const imageUrl = canvas.toDataURL('image/png');
+        // Renderiza o avatar no canvas em alta resolução
+        const avatarClone = await html2canvas(avatarDisplay, {
+            useCORS: true,
+            scale: scaleFactor, // Aumenta a escala do html2canvas
+            logging: true,
+            allowTaint: true,
+            width: avatarDisplay.offsetWidth,
+            height: avatarDisplay.offsetHeight
+        });
+
+        // Desenhar a imagem clonada no canvas maior
+        ctx.drawImage(avatarClone, 0, 0, canvas.width / scaleFactor, canvas.height / scaleFactor);
+
+        // Converter o canvas em URL de imagem para download
+        const imageUrl = canvas.toDataURL('image/png', 2.0); // Qualidade máxima (1.0)
         const link = document.createElement('a');
         link.href = imageUrl;
         link.download = 'PinoPFP.png';
