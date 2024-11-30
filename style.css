@@ -1,18 +1,3 @@
-
-h1 {
-    
-  font-size: 95px; /* Increases the font size of the main title */
-    color: #fff;
-    background-color: #000000;
-    box-shadow: -17px 16px 6px rgba(0, 0, 0, 0.3);
-    border-radius: 8px;
-    text-align: center;
-    align-items: center;
-   
-}
-h2, h3 {
-  font-size: 59px; /* Aumenta o tamanho das categorias */
-}
 body {
   font-family: "Bangers", serif;
   font-weight: 400;
@@ -22,10 +7,36 @@ body {
   margin: 0;
   background-color: #f7ca16;
   font-size: 24px;
+  display: flex; /* Garante que o conteúdo seja centralizado */
+  flex-direction: column; /* Mantém o alinhamento dos elementos no eixo vertical */
+  text-align: center;
 }
 
 .container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+h1 {
+  font-size: 95px; /* Increases the font size of the main title */
+  color: #fff;
+  background-color: #000000;
+  box-shadow: -17px 16px 6px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto; /* Garante alinhamento horizontal ao centro */
+  width: 100%; /* Ocupa toda a largura disponível para melhor alinhamento */
+}
+
+h2, h3 {
+  font-size: 59px; /* Aumenta o tamanho das categorias */
 }
 
 .avatar-display {
@@ -62,6 +73,13 @@ body {
 
 .options {
   justify-content: center;
+  display: flex;
+  gap: 1px; /* Espaçamento entre as opções */
+  width: 100%; /* Para garantir que as opções ocupem toda a largura disponível */
+  overflow-x: auto; /* Adiciona a barra de rolagem horizontal */
+  white-space: nowrap; /* Garante que as opções fiquem em linha */
+  align-items: center;
+  flex-wrap: wrap; /* Permite que os botões se alinhem verticalmente quando a tela diminuir */
 }
 
 .options button {
@@ -88,11 +106,12 @@ body {
 }
 
 .slider {
-  /* Para dispor os botões e as opções lado a lado */
-  justify-content: space-between; /* Coloca os botões nas extremidades */
+  justify-content: center; /* Centraliza os botões no centro */
   align-items: center; /* Alinha os itens verticalmente no centro */
   position: relative;
   display: flex;
+  width: 100%;
+  flex-wrap: wrap; /* Permite que os botões se alinhem em várias linhas se necessário */
 }
 
 .slider button {
@@ -104,19 +123,10 @@ body {
   font-size: 165.6px; /* Aumento de 20% em relação ao original 138px */
   padding: 37.2px; /* Aumento de 20% em relação ao original 31px */
   cursor: pointer;
-  margin: 0 0 px; /* Espaço entre os botões */
+  margin: 10px; /* Ajusta o espaçamento para manter os botões visíveis no centro */
   justify-content: center; /* Alinha o conteúdo do botão horizontalmente */
   align-items: center; /* Alinha o conteúdo do botão verticalmente */
   color: rgb(0, 0, 0);
-}
-
-.options {
-  /* Flexbox para alinhar as opções horizontalmente */
-  justify-content: center;
-  gap: 1px; /* Espaçamento entre as opções */
-  width: 100%; /* Para garantir que as opções ocupem toda a largura disponível */
-  overflow-x: auto; /* Adiciona a barra de rolagem horizontal */
-  white-space: nowrap; /* Garante que as opções fiquem em linha */
 }
 
 .options button {
@@ -141,10 +151,12 @@ body {
 /* Styling for Slider Controls - Next and Previous Buttons */
 .slider {
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* Centraliza os botões e o slider */
   align-items: center;
   position: relative;
   margin: 10px 0; /* Adds some space above and below sliders */
+  width: 100%;
+  flex-wrap: wrap; /* Permite que os botões se alinhem em várias linhas se necessário */
 }
 
 .slider button {
@@ -154,27 +166,27 @@ body {
   cursor: pointer;
   font-size: 28.8px; /* Aumento de 20% em relação ao original 24px */
   z-index: 2; /* Ensures the button stays on top */
+  margin: 10px; /* Adiciona espaçamento ao redor dos botões */
 }
 
 /* Positioning the slider buttons */
 .slider .prev {
-  position: absolute;
-  left: -24px; /* Aumento de 20% em relação ao original -20px */
-  top: 50%;
-  transform: translateY(-50%);
+  position: relative;
+  margin-right: 10px;
 }
 
 .slider .next {
-  position: absolute;
-  right: -24px; /* Aumento de 20% em relação ao original -20px */
-  top: 50%;
-  transform: translateY(-50%);
+  position: relative;
+  margin-left: 10px;
 }
 
 #buttons-container {
   justify-content: center; /* Centraliza os botões dentro do contêiner */
+  display: flex;
+  align-items: center;
   gap: 18px; /* Aumento de 20% em relação ao original 15px */
   margin-top: 24px; /* Aumento de 20% em relação ao original 20px */
+  flex-wrap: wrap; /* Permite que os botões sejam alinhados verticalmente quando a tela diminuir */
 }
 
 #generate-btn, #default-btn, #download-btn {
@@ -184,6 +196,7 @@ body {
   border: none; /* Remove a borda padrão dos botões */
   border-radius: 3.2px; /* Redução de 60% em relação ao original 8px */
   cursor: pointer; /* Aplica o cursor de "mãozinha" ao passar sobre o botão */
+  margin: 10px; /* Adiciona espaçamento ao redor dos botões para melhor visualização */
 }
 
 #generate-btn {
