@@ -1,12 +1,28 @@
+
+h1 {
+    
+  font-size: 95px; /* Increases the font size of the main title */
+    color: #fff;
+    background-color: #000000;
+    box-shadow: -17px 16px 6px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    text-align: center;
+    align-items: center;
+   
+}
+h2, h3 {
+  font-size: 59px; /* Aumenta o tamanho das categorias */
+}
 body {
   font-family: "Bangers", serif;
   font-weight: 400;
-  display: flex;
+ 
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   margin: 0;
-  background-color: #f9f9f9;
+  background-color: #f7ca16;
+  font-size: 24px;
 }
 
 .container {
@@ -14,8 +30,8 @@ body {
 }
 
 .avatar-display {
-  width: 500px;
-  height: 500px;
+  width: 1000px;
+  height: 1000px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -25,44 +41,45 @@ body {
   overflow: hidden;
 }
 
-/* Camada de fundo */
 #background-layer {
   position: absolute;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: 0; /* Garante que o background fique atrás */
+  z-index: 0; /* Backgrounds at the back */
 }
 
-/* Camadas de acessórios */
 #avatar-image, .layer {
   position: absolute;
   width: 100%;
   height: 100%;
   object-fit: contain;
-  z-index: 1; /* Garante que o avatar e acessórios fiquem acima do background */
+  z-index: 1; /* Default for avatar and accessories */
 }
-
 
 .layer {
-  z-index: 2;
+  z-index: 2; /* For other layers, you can adjust later */
 }
-/* Icone do corpo padrão para os botões de acessório */
+
+.options {
+ 
+  justify-content: center;
+}
+
 .options button {
   width: 80px;
   height: 80px;
-  border: 2px solid #ddd;
-  margin: 5px;
+  border: 21px solid #ddd;
+  margin: 2px;
   cursor: pointer;
-  background-image: url('images/default/default_pino.png'); /* Corpo padrão */
+  background-image: url('images/default/default_pino.png'); /* Default Pino background */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
-  box-shadow: -4px 4px 8px rgba(0, 0, 0, 0.2);
+    
 }
 
-/* Imagens de acessórios dentro dos botões */
 .options button img {
   width: 100%;
   height: 100%;
@@ -70,52 +87,95 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 1; /* Garante que os acessórios fiquem acima do corpo padrão */
+  z-index: 1; /* Keeps accessories above default body */
+    
 }
 
+.slider {
+   /* Para dispor os botões e as opções lado a lado */
+  justify-content: space-between; /* Coloca os botões nas extremidades */
+  align-items: center; /* Alinha os itens verticalmente no centro */
+  position: relative;
+    
+     display: flex;
+    
+}
 
-button {
-  padding: 10px 15px;
-  margin: 10px 5px;
+.slider button {
+  z-index: 2; /* Garante que as setas fiquem acima das opções */
+  background-color: rgba(44, 38, 33, 0); /* Cor do botão */
   border: none;
-  border-radius: 8px;
-  font-size: 1rem;
+  width: 3px; /* Define uma largura fixa para o botão */
+  height: 3px; /* Define uma altura fixa para o botão */
+  font-size: 138px; /* Tamanho da fonte */
+  padding: 31; /* Remove qualquer padding extra que pode afetar o tamanho */
   cursor: pointer;
-  transition: background-color 0.3s, transform 0.1s;
+  margin: 0 0 px; /* Espaço entre os botões */
+  
+  justify-content: center; /* Alinha o conteúdo do botão horizontalmente */
+  align-items: center; /* Alinha o conteúdo do botão verticalmente */
+    color: rgb(0, 0, 0)
+    
 }
 
-#generate-btn {
-   font-family: "Bangers", serif;
-  font-weight: 400;
-  background-color: #000;
-  color: #fff;
-}
 
-#default-btn {
-   font-family: "Bangers", serif;
-  font-weight: 400;
-  background-color: #f40000;
-  color: #fff;
-}
-
-#download-btn {
-   font-family: "Bangers", serif;
-  font-weight: 400;
-  background-color: #18d500;
-  color: #fff;
+.options {
+  /* Flexbox para alinhar as opções horizontalmente */
+  justify-content: center;
+  gap: 1px; /* Espaçamento entre as opções */
+  width: 100%; /* Para garantir que as opções ocupem toda a largura disponível */
+    
 }
 
 .options button {
-  width: 80px;
-  height: 80px;
-  margin: 5px;
-  background-size: cover;
-  position: relative;
+  width: 250px;
+  height:250px;
   border: 2px solid #ddd;
+  background-image: url('images/default/default_pino.png');
+  background-size: cover;
+  background-position: center;
+    
+    
 }
 
-.options button img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+
+#buttons-container {
+  
+  justify-content: center; /* Centraliza os botões dentro do contêiner */
+  gap: 15px; /* Espaçamento entre os botões */
+  margin-top: 20px; /* Adiciona uma margem superior para o contêiner */
 }
+
+#generate-btn, #default-btn, #download-btn {
+ font-family: "Bangers", serif;
+  padding: 39px 20px; /* Ajuste no padding dos botões */
+  font-size: 50px; /* Tamanho da fonte dos botões */
+  border: none; /* Remove a borda padrão dos botões */
+  border-radius: 8px; /* Borda arredondada para os botões */
+  cursor: pointer; /* Aplica o cursor de "mãozinha" ao passar sobre o botão */
+}
+
+#generate-btn {
+  background-color: #000; /* Fundo preto para o botão 'RANDOMIZE' */
+  color: #fff; /* Cor do texto em branco */
+}
+
+#default-btn {
+  background-color: #f40000; /* Fundo vermelho para o botão 'RESET' */
+  color: #fff; /* Cor do texto em branco */
+}
+
+#download-btn {
+  background-color: #18d500; /* Fundo verde para o botão 'DOWNLOAD' */
+  color: #fff; /* Cor do texto em branco */
+}
+
+footer {
+  background-color: #ff6300;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  width: 100%;
+  position: relative; /* Changed from fixed to relative */
+}
+
