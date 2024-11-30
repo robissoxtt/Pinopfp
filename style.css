@@ -1,3 +1,18 @@
+
+h1 {
+    
+  font-size: 95px; /* Increases the font size of the main title */
+    color: #fff;
+    background-color: #000000;
+    box-shadow: -17px 16px 6px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    text-align: center;
+    align-items: center;
+   
+}
+h2, h3 {
+  font-size: 59px; /* Aumenta o tamanho das categorias */
+}
 body {
   font-family: "Bangers", serif;
   font-weight: 400;
@@ -7,36 +22,10 @@ body {
   margin: 0;
   background-color: #f7ca16;
   font-size: 24px;
-  display: flex; /* Garante que o conteúdo seja centralizado */
-  flex-direction: column; /* Mantém o alinhamento dos elementos no eixo vertical */
-  text-align: center;
 }
 
 .container {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-}
-
-h1 {
-  font-size: 95px; /* Increases the font size of the main title */
-  color: #fff;
-  background-color: #000000;
-  box-shadow: -17px 16px 6px rgba(0, 0, 0, 0.3);
-  border-radius: 8px;
   text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto; /* Garante alinhamento horizontal ao centro */
-  width: 100%; /* Ocupa toda a largura disponível para melhor alinhamento */
-}
-
-h2, h3 {
-  font-size: 59px; /* Aumenta o tamanho das categorias */
 }
 
 .avatar-display {
@@ -72,27 +61,25 @@ h2, h3 {
 }
 
 .options {
-  justify-content: center;
-  display: flex;
-  gap: 1px; /* Espaçamento entre as opções */
-  width: 100%; /* Para garantir que as opções ocupem toda a largura disponível */
-  overflow-x: auto; /* Adiciona a barra de rolagem horizontal */
-  white-space: nowrap; /* Garante que as opções fiquem em linha */
-  align-items: center;
-  flex-wrap: wrap; /* Permite que os botões se alinhem verticalmente quando a tela diminuir */
+  justify-content: flex;
+  
 }
 
 .options button {
   width: 96px; /* Aumento de 20% em relação ao original 80px */
-  height: 96px; /* Aumento de 20% em relação ao original 80px */
-  border: 25px solid #ddd; /* Ajustei proporcionalmente ao tamanho */
+  height: 113px; /* Aumento de 20% em relação ao original 80px */
+  border: 36px solid #ddd; /* Ajustei proporcionalmente ao tamanho */
   margin: 2px;
   cursor: pointer;
   background-image: url('images/default/default_pino.png'); /* Default Pino background */
-  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
+  align-items: center;
+  justify-content: flex;
+  border-radius: 10px;
+ 
+  overflow: hidden;
 }
 
 .options button img {
@@ -106,12 +93,11 @@ h2, h3 {
 }
 
 .slider {
-  justify-content: center; /* Centraliza os botões no centro */
+  /* Para dispor os botões e as opções lado a lado */
+  justify-content: space-between; /* Coloca os botões nas extremidades */
   align-items: center; /* Alinha os itens verticalmente no centro */
   position: relative;
   display: flex;
-  width: 100%;
-  flex-wrap: wrap; /* Permite que os botões se alinhem em várias linhas se necessário */
 }
 
 .slider button {
@@ -123,10 +109,19 @@ h2, h3 {
   font-size: 165.6px; /* Aumento de 20% em relação ao original 138px */
   padding: 37.2px; /* Aumento de 20% em relação ao original 31px */
   cursor: pointer;
-  margin: 10px; /* Ajusta o espaçamento para manter os botões visíveis no centro */
+  margin: 0 0 px; /* Espaço entre os botões */
   justify-content: center; /* Alinha o conteúdo do botão horizontalmente */
   align-items: center; /* Alinha o conteúdo do botão verticalmente */
   color: rgb(0, 0, 0);
+}
+
+.options {
+  /* Flexbox para alinhar as opções horizontalmente */
+  justify-content: center;
+  gap: 1px; /* Espaçamento entre as opções */
+  width: 100%; /* Para garantir que as opções ocupem toda a largura disponível */
+  overflow-x: auto; /* Adiciona a barra de rolagem horizontal */
+  white-space: nowrap; /* Garante que as opções fiquem em linha */
 }
 
 .options button {
@@ -151,12 +146,10 @@ h2, h3 {
 /* Styling for Slider Controls - Next and Previous Buttons */
 .slider {
   display: flex;
-  justify-content: center; /* Centraliza os botões e o slider */
+  justify-content: space-between;
   align-items: center;
   position: relative;
   margin: 10px 0; /* Adds some space above and below sliders */
-  width: 100%;
-  flex-wrap: wrap; /* Permite que os botões se alinhem em várias linhas se necessário */
 }
 
 .slider button {
@@ -166,27 +159,27 @@ h2, h3 {
   cursor: pointer;
   font-size: 28.8px; /* Aumento de 20% em relação ao original 24px */
   z-index: 2; /* Ensures the button stays on top */
-  margin: 10px; /* Adiciona espaçamento ao redor dos botões */
 }
 
 /* Positioning the slider buttons */
 .slider .prev {
-  position: relative;
-  margin-right: 10px;
+  position: absolute;
+  left: -24px; /* Aumento de 20% em relação ao original -20px */
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .slider .next {
-  position: relative;
-  margin-left: 10px;
+  position: absolute;
+  right: -24px; /* Aumento de 20% em relação ao original -20px */
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 #buttons-container {
   justify-content: center; /* Centraliza os botões dentro do contêiner */
-  display: flex;
-  align-items: center;
   gap: 18px; /* Aumento de 20% em relação ao original 15px */
   margin-top: 24px; /* Aumento de 20% em relação ao original 20px */
-  flex-wrap: wrap; /* Permite que os botões sejam alinhados verticalmente quando a tela diminuir */
 }
 
 #generate-btn, #default-btn, #download-btn {
@@ -196,7 +189,6 @@ h2, h3 {
   border: none; /* Remove a borda padrão dos botões */
   border-radius: 3.2px; /* Redução de 60% em relação ao original 8px */
   cursor: pointer; /* Aplica o cursor de "mãozinha" ao passar sobre o botão */
-  margin: 10px; /* Adiciona espaçamento ao redor dos botões para melhor visualização */
 }
 
 #generate-btn {
@@ -217,25 +209,25 @@ h2, h3 {
 footer {
   background-color: #ff6300;
   color: #fff;
-  text-align: center;
-  padding: 12px; /* Aumento de 20% em relação ao original 10px */
-  width: 100%;
-  position: relative; /* Changed from fixed to relative */
+  text-align: flex;
+  padding: 1px; /* Aumento de 20% em relação ao original 10px */
+  width: 1%;
+  position: fixed; /* Changed from fixed to relative */
 }
 
 /* Scrollbar Styles */
 .options::-webkit-scrollbar {
-  height: 50px; /* Aumento de 20% em relação ao original 10px */
+  height: 1px; /* Aumento de 20% em relação ao original 10px */
 }
 
 .options::-webkit-scrollbar-track {
   background: rgba(0, 0, 0, 0.1); /* Trilho da barra de rolagem com leve transparência */
-  border-radius: 12px; /* Aumento de 20% em relação ao original 10px */
+  border-radius: 1px; /* Aumento de 20% em relação ao original 10px */
 }
 
 .options::-webkit-scrollbar-thumb {
   background: rgba(0, 0, 0, 0.4); /* Cor do "polegar" da barra de rolagem com um pouco de transparência */
-  border-radius: 50px; /* Aumento de 20% em relação ao original 10px */
+  border-radius: 1px; /* Aumento de 20% em relação ao original 10px */
 }
 
 .options::-webkit-scrollbar-thumb:hover {
