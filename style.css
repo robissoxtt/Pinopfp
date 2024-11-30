@@ -1,19 +1,18 @@
-h1 {
-  font-size: 95px; /* Increases the font size of the main title */
-  color: #fff;
-  background-color: #000000;
-  box-shadow: -17px 16px 6px rgba(0, 0, 0, 0.3);
-  border-radius: 8px;
-  text-align: center;
-  align-items: center;
-  display: flex; /* Alinha horizontalmente usando flexbox */
-  justify-content: center; /* Garante que o h1 esteja centralizado horizontalmente */
-}
 
+h1 {
+    
+  font-size: 95px; /* Increases the font size of the main title */
+    color: #fff;
+    background-color: #000000;
+    box-shadow: -17px 16px 6px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    text-align: center;
+    align-items: center;
+   
+}
 h2, h3 {
   font-size: 59px; /* Aumenta o tamanho das categorias */
 }
-
 body {
   font-family: "Bangers", serif;
   font-weight: 400;
@@ -23,8 +22,6 @@ body {
   margin: 0;
   background-color: #f7ca16;
   font-size: 24px;
-  display: flex; /* Garante que o conteúdo seja centralizado */
-  flex-direction: column; /* Mantém o alinhamento dos elementos no eixo vertical */
 }
 
 .container {
@@ -96,7 +93,6 @@ body {
   align-items: center; /* Alinha os itens verticalmente no centro */
   position: relative;
   display: flex;
-  width: 100%;
 }
 
 .slider button {
@@ -108,7 +104,7 @@ body {
   font-size: 165.6px; /* Aumento de 20% em relação ao original 138px */
   padding: 37.2px; /* Aumento de 20% em relação ao original 31px */
   cursor: pointer;
-  margin: 0; /* Removido valor incorreto "0 px" */
+  margin: 0 0 px; /* Espaço entre os botões */
   justify-content: center; /* Alinha o conteúdo do botão horizontalmente */
   align-items: center; /* Alinha o conteúdo do botão verticalmente */
   color: rgb(0, 0, 0);
@@ -149,7 +145,6 @@ body {
   align-items: center;
   position: relative;
   margin: 10px 0; /* Adds some space above and below sliders */
-  width: 100%;
 }
 
 .slider button {
@@ -164,14 +159,14 @@ body {
 /* Positioning the slider buttons */
 .slider .prev {
   position: absolute;
-  left: 10px; /* Aumentei a posição para ser visível */
+  left: -24px; /* Aumento de 20% em relação ao original -20px */
   top: 50%;
   transform: translateY(-50%);
 }
 
 .slider .next {
   position: absolute;
-  right: 10px; /* Aumentei a posição para ser visível */
+  right: -24px; /* Aumento de 20% em relação ao original -20px */
   top: 50%;
   transform: translateY(-50%);
 }
