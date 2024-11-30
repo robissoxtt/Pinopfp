@@ -228,18 +228,35 @@ function setDefaultAvatar() {
 }
 
 
-// Função de download
+// Função de download com aumento da resolução em 2x
 downloadBtn.addEventListener('click', async () => {
     try {
+        // Define um canvas maior para garantir alta qualidade
         const canvas = document.createElement('canvas');
-        canvas.width = 1000;
-        canvas.height = 1000;
+        const scaleFactor = 2; // Fator para aumentar a resolução do canvas
+
+        // Definir o tamanho do canvas considerando a escala de 2x
+        canvas.width = 1000 * scaleFactor; // Dobro da largura
+        canvas.height = 1000 * scaleFactor; // Dobro da altura
 
         const ctx = canvas.getContext('2d');
-        const avatarClone = await html2canvas(avatarDisplay, { useCORS: true });
-        ctx.drawImage(avatarClone, 0, 0, canvas.width, canvas.height);
+        ctx.scale(scaleFactor, scaleFactor); // Ajusta o contexto para escalar o conteúdo
 
-        const imageUrl = canvas.toDataURL('image/png');
+        // Renderiza o avatar no canvas em alta resolução
+        const avatarClone = await html2canvas(avatarDisplay, {
+            useCORS: true,
+            scale: scaleFactor, // Aumenta a escala do html2canvas
+            logging: true,
+            allowTaint: true,
+            width: avatarDisplay.offsetWidth,
+            height: avatarDisplay.offsetHeight
+        });
+
+        // Desenhar a imagem clonada no canvas maior
+        ctx.drawImage(avatarClone, 0, 0, canvas.width / scaleFactor, canvas.height / scaleFactor);
+
+        // Converter o canvas em URL de imagem para download
+        const imageUrl = canvas.toDataURL('image/png', 1.0); // Qualidade máxima (1.0)
         const link = document.createElement('a');
         link.href = imageUrl;
         link.download = 'PinoPFP.png';
