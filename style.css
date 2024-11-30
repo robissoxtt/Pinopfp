@@ -61,25 +61,22 @@ body {
 }
 
 .options {
-  justify-content: flex;
+  justify-content: center;
   
 }
 
 .options button {
-  width: 96px; /* Aumento de 20% em relação ao original 80px */
-  height: 113px; /* Aumento de 20% em relação ao original 80px */
-  border: 36px solid #ddd; /* Ajustei proporcionalmente ao tamanho */
+  width: 80px;
+  height: 80px;
+  border: 21px solid #ddd;
   margin: 2px;
   cursor: pointer;
   background-image: url('images/default/default_pino.png'); /* Default Pino background */
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
-  align-items: center;
-  justify-content: flex;
-  border-radius: 10px;
- 
-  overflow: hidden;
+    
 }
 
 .options button img {
@@ -90,8 +87,8 @@ body {
   top: 0;
   left: 0;
   z-index: 1; /* Keeps accessories above default body */
+    
 }
-
 .slider {
   /* Para dispor os botões e as opções lado a lado */
   justify-content: space-between; /* Coloca os botões nas extremidades */
@@ -117,7 +114,7 @@ body {
 
 .options {
   /* Flexbox para alinhar as opções horizontalmente */
-  justify-content: center;
+  justify-content: space-between;
   gap: 1px; /* Espaçamento entre as opções */
   width: 100%; /* Para garantir que as opções ocupem toda a largura disponível */
   overflow-x: auto; /* Adiciona a barra de rolagem horizontal */
