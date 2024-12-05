@@ -126,13 +126,13 @@ document.querySelectorAll('.hats-option').forEach(option => {
 
 document.querySelectorAll('.glasses-option').forEach(option => {
   option.addEventListener('click', () => {
-    addOrReplaceCategoryImage('eye-layer', `images/glasses/${option.getAttribute('data-img')}`, 3);
+    addOrReplaceCategoryImage('eye-layer', `images/glasses/${option.getAttribute('data-img')}`, 2);
   });
 });
 
 document.querySelectorAll('.clothes-option').forEach(option => {
   option.addEventListener('click', () => {
-    addOrReplaceCategoryImage('clothes-layer', `images/clothes/${option.getAttribute('data-img')}`, 2);
+    addOrReplaceCategoryImage('clothes-layer', `images/clothes/${option.getAttribute('data-img')}`, 3);
   });
 });
 
