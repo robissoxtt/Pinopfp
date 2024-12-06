@@ -1,25 +1,26 @@
 h1 {
   
-  font-size: 107px; /* Increases the font size of the main title */
-  color: rgb(0, 0, 0);
-   
-  
+  color: rgb(0, 0, 0); 
   border-radius: 8px;
-  display: flex;
+  display: center;
   position: relative;
   justify-content: center;
-  margin: 1;
-  
-  
-  
+  margin: 0;
+  font-size: clamp(10px, 8vw, 100px); /* Adapta entre 36px e 107px */
+      
 }
 
 h3 {
-  font-size: 26px; /* Aumenta o tamanho das categorias */
+  font-size: clamp(13px, 8vw, 20px); /* Adapta entre 36px e 107px */
+  
 }
+
+
 h2 {
-  font-size: 46px; /* Aumenta o tamanho das categorias */
+  font-size: clamp(13px, 8vw, 30px); /* Aumenta o tamanho das categorias */
 }
+
+
 
 body {
   margin: 0; /* Remove margem padrão */
@@ -33,20 +34,23 @@ body {
   min-height: 100vh;
    
   background-color: #f7ca16;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .container {
   text-align: center;
+  justify-content: center;
+  overflow: hidden;
+  
 }
 
 .avatar-display {
   
-  width: 500px;
-  height: 500px;
+  width: 250px;
+  height: 250px;
   display: flex;
   justify-content: center;
-  border-radius: 56px;
+  border-radius: 14px;
   margin:  auto;
   position: relative;
   overflow: hidden;
@@ -76,10 +80,12 @@ body {
 }
 
 .options {
-  
+  margin:  auto;
+  display: flex;
   justify-content: center;
-  gap: 22px;
-  width: 826%; /* Para garantir que as opções ocupem toda a largura disponível */
+  gap: 1px;
+  
+  
 }
 
 .options button {
@@ -87,7 +93,7 @@ body {
   
   width: 100px;
   height: 100px;
-  border: 2px solid #ddd;
+  border: 3px solid #ddd;
   margin: -5px;
   position: relative;
   cursor: pointer;
@@ -113,48 +119,47 @@ body {
 
 .options {
   align-items: center;
-  
- 
-  gap: 29px;
+  gap: 13px;
   flex-wrap: nowrap; /* Impede que os itens quebrem linha */
   transition: transform 0.3s ease; /* Transição suave ao deslizar */
+  
 }
 
 
 .slider  {
   
   display: flex;
-  overflow-x: scroll; /* Permite rolagem horizontal */
-  gap: -24px; /* Espaçamento entre os botões */
+  overflow-x: auto; /* Permite rolagem horizontal */
+  gap: 1px; /* Espaçamento entre os botões */
   scroll-behavior: smooth; /* Rolagem suave */
-  padding: 12px;
+  padding: 5px;
 }
 
 .slider::-webkit-scrollbar {
   
-  height: 25px; /* Aumenta a altura do scrollbar */
+  height: 14px; /* Aumenta a altura do scrollbar */
 }
 
 .slider::-webkit-scrollbar-track {
   background-color: rgba(0, 0, 0, 0); /* Fundo do scrollbar */
-  border-radius: 14px; /* Arredondamento do fundo */
+  border-radius: 9px; /* Arredondamento do fundo */
 }
 
 .slider::-webkit-scrollbar-thumb {
   background-color: #ffffff; /* Cor da parte que se move */
   border-radius: 10px; /* Arredondamento */
-  border: 5px solid rgba(225, 225, 225, 0); /* Espaço ao redor para parecer mais largo */
+  border: 5px solid rgba(3, 1, 2, 0.22); /* Espaço ao redor para parecer mais largo */
 }
 
 .slider::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(0, 74, 8, 0); /* Cor mais escura ao passar o mouse */
+  background-color: rgba(8, 103, 5, 0.63); /* Cor mais escura ao passar o mouse */
 }
 
 
 
 .options {
   display: flex;
-  gap: -39px;
+  gap: 15px;
   flex-wrap: nowrap; /* Impede que os itens quebrem linha */
 }
 
@@ -180,8 +185,8 @@ button.next {
 
 #generate-btn, #default-btn, #download-btn {
   font-family: "Bangers", serif;
-  padding: 3px 42px; /* Ajuste no padding dos botões */
-  font-size: 26px; /* Tamanho da fonte dos botões */
+  padding: 10px 20px; /* Ajuste no padding dos botões */
+  font-size: 18px; /* Tamanho da fonte dos botões */
   border: none; /* Remove a borda padrão dos botões */
   border-radius: 8px; /* Borda arredondada para os botões */
   cursor: pointer; /* Aplica o cursor de "mãozinha" ao passar sobre o botão */

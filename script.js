@@ -242,7 +242,7 @@ document.getElementById('download-btn').addEventListener('click', async () => {
   
 
     // Cria um canvas com html2canvas
-    const canvas = await html2canvas(avatarDisplay, { scale: 2 }); // Escala maior para alta resolução
+    const canvas = await html2canvas(avatarDisplay, { scale: 4 }); // Escala maior para alta resolução
     const dataURL = canvas.toDataURL('image/png');
 
     // Cria o link de download
