@@ -234,24 +234,33 @@ function setDefaultAvatar() {
 
 
 document.getElementById('download-btn').addEventListener('click', async () => {
-  
-  // Remove bordas arredondadas temporariamente
-    const avatarDisplay = document.getElementById('avatar-display');
-    const previousBorderRadius = avatarDisplay.style.borderRadius; // Salva o estilo atual
-    avatarDisplay.style.borderRadius = '0'; // Remove o arredondamento
-  
+  const avatarDisplay = document.getElementById('avatar-display');
 
-    // Cria um canvas com html2canvas
-    const canvas = await html2canvas(avatarDisplay, { scale: 4 }); // Escala maior para alta resolução
-    const dataURL = canvas.toDataURL('image/png');
+  // Criar um clone invisível
+  const clone = avatarDisplay.cloneNode(true);
+  clone.style.margin = '0';
+  clone.style.borderRadius = '0';
+  clone.style.position = 'absolute';
+  clone.style.top = '-9999px'; // Posicionar fora da tela
+  clone.style.left = '-9999px';
 
-    // Cria o link de download
-    const link = document.createElement('a');
-    link.href = dataURL;
-    link.download = 'PINOZATION_COMPLETED.png'; // Nome do arquivo
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+  document.body.appendChild(clone); // Adicionar o clone temporário ao DOM
+
+  // Capturar o clone com html2canvas
+  const canvas = await html2canvas(clone, { scale: 4 });
+  const dataURL = canvas.toDataURL('image/png');
+
+  // Remover o clone do DOM
+  document.body.removeChild(clone);
+
+  // Criar o link de download
+  const link = document.createElement('a');
+  link.href = dataURL;
+  link.download = 'PINOZATION_COMPLETED.png';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
 });
+
 
   
