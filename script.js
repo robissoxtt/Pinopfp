@@ -4,6 +4,9 @@ const defaultBtn = document.getElementById('default-btn');
 const downloadBtn = document.getElementById('download-btn');
 const avatarDisplay = document.getElementById('avatar-display');
 const avatarImage = document.getElementById('avatar-image');
+const matrixBackground = document.querySelector('.matrix-background');
+
+
 avatarImage.onerror = function() {
     console.error("Erro ao carregar a imagem:", avatarImage.src);
     avatarImage.src = 'images/default/fallback_image.png';
@@ -84,7 +87,7 @@ function setupSlider(slider, options) {
   function showOptions() {
     const allOptions = optionsContainer.children;
     for (let i = 0; i < allOptions.length; i++) {
-      allOptions[i].style.display = (i >= currentIndex && i < currentIndex + 4) ? 'inline-block' : 'none';
+      allOptions[i].style.display = (i >= currentIndex && i < currentIndex + 50) ? 'inline-block' : 'none';
     }
   }
 
@@ -230,25 +233,25 @@ function setDefaultAvatar() {
 }
 
 
-// Função de download
-downloadBtn.addEventListener('click', async () => {
-    try {
-        const canvas = document.createElement('canvas');
-        canvas.width = 1000;
-        canvas.height = 1000;
+document.getElementById('download-btn').addEventListener('click', async () => {
+  
+  // Remove bordas arredondadas temporariamente
+    const avatarDisplay = document.getElementById('avatar-display');
+    const previousBorderRadius = avatarDisplay.style.borderRadius; // Salva o estilo atual
+    avatarDisplay.style.borderRadius = '0'; // Remove o arredondamento
+  
 
-        const ctx = canvas.getContext('2d');
-        const avatarClone = await html2canvas(avatarDisplay, { useCORS: true });
-        ctx.drawImage(avatarClone, 0, 0, canvas.width, canvas.height);
+    // Cria um canvas com html2canvas
+    const canvas = await html2canvas(avatarDisplay, { scale: 2 }); // Escala maior para alta resolução
+    const dataURL = canvas.toDataURL('image/png');
 
-        const imageUrl = canvas.toDataURL('image/png');
-        const link = document.createElement('a');
-        link.href = imageUrl;
-        link.download = 'PinoPFP.png';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-    } catch (error) {
-        console.error("Error capturing and downloading the image:", error);
-    }
+    // Cria o link de download
+    const link = document.createElement('a');
+    link.href = dataURL;
+    link.download = 'PINOZATION_COMPLETED.png'; // Nome do arquivo
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
 });
+
+  

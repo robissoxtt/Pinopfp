@@ -1,28 +1,39 @@
-
 h1 {
-    
-  font-size: 95px; /* Increases the font size of the main title */
-    color: #fff;
-    background-color: #000000;
-    box-shadow: -17px 16px 6px rgba(0, 0, 0, 0.3);
-    border-radius: 8px;
-    text-align: center;
-    align-items: center;
+  
+  font-size: 107px; /* Increases the font size of the main title */
+  color: rgb(0, 0, 0);
    
+  
+  border-radius: 8px;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  margin: 1;
+  
+  
+  
 }
-h2, h3 {
-  font-size: 59px; /* Aumenta o tamanho das categorias */
+
+h3 {
+  font-size: 26px; /* Aumenta o tamanho das categorias */
 }
+h2 {
+  font-size: 46px; /* Aumenta o tamanho das categorias */
+}
+
 body {
+  margin: 0; /* Remove margem padrão */
+  padding: 0; /* Remove padding padrão */
+  background: url('your-animation.gif') no-repeat center center fixed;
+  background-size: cover; /* Faz o GIF preencher toda a tela */
   font-family: "Bangers", serif;
-  font-weight: 400;
- 
+  font-weight: 440;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  margin: 0;
+   
   background-color: #f7ca16;
-  font-size: 24px;
+  font-size: 14px;
 }
 
 .container {
@@ -30,15 +41,16 @@ body {
 }
 
 .avatar-display {
-  width: 1000px;
-  height: 1000px;
+  
+  width: 500px;
+  height: 500px;
   display: flex;
-  align-items: center;
   justify-content: center;
-  border-radius: 10px;
-  margin: 20px auto;
+  border-radius: 56px;
+  margin:  auto;
   position: relative;
   overflow: hidden;
+  
 }
 
 #background-layer {
@@ -50,6 +62,8 @@ body {
 }
 
 #avatar-image, .layer {
+   margin: 0 auto; /* Centraliza o contêiner na tela */
+   overflow: hidden; /* Garante que o conteúdo extra não "vaze" */
   position: absolute;
   width: 100%;
   height: 100%;
@@ -62,94 +76,112 @@ body {
 }
 
 .options {
- 
+  
   justify-content: center;
+  gap: 22px;
+  width: 826%; /* Para garantir que as opções ocupem toda a largura disponível */
 }
 
 .options button {
-  width: 80px;
-  height: 80px;
-  border: 21px solid #ddd;
-  margin: 2px;
+  
+  
+  width: 100px;
+  height: 100px;
+  border: 2px solid #ddd;
+  margin: -5px;
+  position: relative;
   cursor: pointer;
-  background-image: url('images/default/default_pino.png'); /* Default Pino background */
+  background-image: url('images/default/default_pino.png'); /* Avatar padrão */
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
-  position: relative;
-    
+  overflow: hidden; /* Garante que nada fora do botão apareça */
+   border-radius: 15px;
+  background-color: transparent;
 }
 
 .options button img {
+  
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover; /* Acessório ocupa toda a área */
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 1; /* Keeps accessories above default body */
-    
-}
-
-.slider {
-   /* Para dispor os botões e as opções lado a lado */
-  justify-content: space-between; /* Coloca os botões nas extremidades */
-  align-items: center; /* Alinha os itens verticalmente no centro */
-  position: relative;
-    
-     display: flex;
-    
-}
-
-.slider button {
-  z-index: 2; /* Garante que as setas fiquem acima das opções */
-  background-color: rgba(44, 38, 33, 0); /* Cor do botão */
-  border: none;
-  width: 3px; /* Define uma largura fixa para o botão */
-  height: 3px; /* Define uma altura fixa para o botão */
-  font-size: 138px; /* Tamanho da fonte */
-  padding: 31; /* Remove qualquer padding extra que pode afetar o tamanho */
-  cursor: pointer;
-  margin: 0 0 px; /* Espaço entre os botões */
-  
-  justify-content: center; /* Alinha o conteúdo do botão horizontalmente */
-  align-items: center; /* Alinha o conteúdo do botão verticalmente */
-    color: rgb(0, 0, 0)
-    
+  z-index: 2; /* Garante que o acessório fique acima do fundo */
 }
 
 
 .options {
-  /* Flexbox para alinhar as opções horizontalmente */
-  justify-content: center;
-  gap: 1px; /* Espaçamento entre as opções */
-  width: 100%; /* Para garantir que as opções ocupem toda a largura disponível */
-    
+  align-items: center;
+  
+ 
+  gap: 29px;
+  flex-wrap: nowrap; /* Impede que os itens quebrem linha */
+  transition: transform 0.3s ease; /* Transição suave ao deslizar */
 }
 
-.options button {
-  width: 250px;
-  height:250px;
-  border: 2px solid #ddd;
-  background-image: url('images/default/default_pino.png');
-  background-size: cover;
-  background-position: center;
-    
-    
+
+.slider  {
+  
+  display: flex;
+  overflow-x: scroll; /* Permite rolagem horizontal */
+  gap: -24px; /* Espaçamento entre os botões */
+  scroll-behavior: smooth; /* Rolagem suave */
+  padding: 12px;
+}
+
+.slider::-webkit-scrollbar {
+  
+  height: 25px; /* Aumenta a altura do scrollbar */
+}
+
+.slider::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0); /* Fundo do scrollbar */
+  border-radius: 14px; /* Arredondamento do fundo */
+}
+
+.slider::-webkit-scrollbar-thumb {
+  background-color: #ffffff; /* Cor da parte que se move */
+  border-radius: 10px; /* Arredondamento */
+  border: 5px solid rgba(225, 225, 225, 0); /* Espaço ao redor para parecer mais largo */
+}
+
+.slider::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 74, 8, 0); /* Cor mais escura ao passar o mouse */
+}
+
+
+
+.options {
+  display: flex;
+  gap: -39px;
+  flex-wrap: nowrap; /* Impede que os itens quebrem linha */
+}
+
+button.prev {
+  background-color: transparent; /* Fundo transparente */
+  border: none; /* Remove borda */
+  color: transparent; /* Remove texto ou ícone */
+  pointer-events: auto; /* Mantém funcionalidade */
+}
+button.next {
+  background-color: transparent; /* Fundo transparente */
+  border: none; /* Remove borda */
+  color: transparent; /* Remove texto ou ícone */
+  pointer-events: auto; /* Mantém funcionalidade */
 }
 
 
 #buttons-container {
-  
   justify-content: center; /* Centraliza os botões dentro do contêiner */
   gap: 15px; /* Espaçamento entre os botões */
   margin-top: 20px; /* Adiciona uma margem superior para o contêiner */
 }
 
 #generate-btn, #default-btn, #download-btn {
- font-family: "Bangers", serif;
-  padding: 39px 20px; /* Ajuste no padding dos botões */
-  font-size: 50px; /* Tamanho da fonte dos botões */
+  font-family: "Bangers", serif;
+  padding: 3px 42px; /* Ajuste no padding dos botões */
+  font-size: 26px; /* Tamanho da fonte dos botões */
   border: none; /* Remove a borda padrão dos botões */
   border-radius: 8px; /* Borda arredondada para os botões */
   cursor: pointer; /* Aplica o cursor de "mãozinha" ao passar sobre o botão */
@@ -178,4 +210,3 @@ footer {
   width: 100%;
   position: relative; /* Changed from fixed to relative */
 }
-
