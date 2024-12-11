@@ -34,7 +34,8 @@ const accessories = {
             'clothes (13).png','clothes (14).png', 'clothes (15).png','clothes (16).png', 
             'clothes (17).png','clothes (18).png','clothes (19).png','clothes (20).png',
             'clothes (21).png','clothes (22).png','clothes (23).png','clothes (24).png',
-            'clothes (25).png'],
+            'clothes (25).png','clothes (26).png','clothes (27).png','clothes (28).png',
+            'clothes (29).png'],
   
   mouth: ['mouth (1).png', 'mouth (2).png', 'mouth (3).png', 'mouth (4).png', 'mouth (5).png', 
           'mouth (6).png'],
