@@ -21,12 +21,12 @@ const accessories = {
          'hat (6).png', 'hat (7).png','hat (8).png', 'hat (9).png','hat (10).png',
          'hat (11).png','hat (12).png', 'hat (13).png', 'hat (14).png', 'hat (15).png', 
          'hat (16).png', 'hat (17).png', 'hat (18).png', 'hat (19).png', 'hat (20).png', 
-         'hat (21).png', 'hat (22).png', 'hat (23).png', 'hat (24).png'],
+         'hat (21).png', 'hat (22).png', 'hat (23).png', 'hat (24).png', 'hat (25).png'],
   
   glasses: ['glasses (1).png', 'glasses (2).png', 'glasses (3).png', 'glasses (4).png', 
             'glasses (5).png', 'glasses (6).png', 'glasses (7).png', 'glasses (8).png', 
             'glasses (9).png', 'glasses (10).png', 'glasses (11).png', 'glasses (12).png', 
-            'glasses (13).png'],
+            'glasses (13).png', 'glasses (14).png'],
   
   clothes: ['clothes (1).png', 'clothes (2).png', 'clothes (3).png', 'clothes (4).png', 
             'clothes (5).png', 'clothes (6).png', 'clothes (7).png', 'clothes (8).png', 
@@ -35,7 +35,7 @@ const accessories = {
             'clothes (17).png','clothes (18).png','clothes (19).png','clothes (20).png',
             'clothes (21).png','clothes (22).png','clothes (23).png','clothes (24).png',
             'clothes (25).png','clothes (26).png','clothes (27).png','clothes (28).png',
-            'clothes (29).png'],
+            'clothes (29).png','clothes (30).png'],
   
   mouth: ['mouth (1).png', 'mouth (2).png', 'mouth (3).png', 'mouth (4).png', 'mouth (5).png', 
           'mouth (6).png'],
