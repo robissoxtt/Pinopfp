@@ -191,6 +191,7 @@ Object.keys(accessories).forEach(category => {
 });
 
 
+// Download the avatar
 downloadBtn.addEventListener('click', async () => {
     const clone = avatarDisplay.cloneNode(true);
     clone.style.position = 'absolute';
@@ -211,33 +212,17 @@ downloadBtn.addEventListener('click', async () => {
             backgroundColor: null
         });
 
-        // Convert canvas to Data URI
         const dataURL = canvas.toDataURL('image/png');
-
-        // Open the image in a new tab (specific for iPhone behavior)
-        const newTab = window.open();
-        if (newTab) {
-            newTab.document.body.style.margin = '0';
-            newTab.document.body.style.background = '#fff';
-            const img = new Image();
-            img.src = dataURL;
-            img.style.width = '100%';
-            img.style.height = 'auto';
-            newTab.document.body.appendChild(img);
-        } else {
-            // Fallback: Create a download link
-            const link = document.createElement('a');
-            link.href = dataURL;
-            link.download = 'PINOZATION_COMPLETED.png';
-            link.click();
-        }
+        const link = document.createElement('a');
+        link.href = dataURL;
+        link.download = 'PINOZATION_COMPLETED.png';
+        link.click();
     } catch (error) {
         console.error('Error capturing the image:', error);
     } finally {
         document.body.removeChild(clone);
     }
 });
-
 
 // Ensure defaults on load
 window.addEventListener('load', () => {
