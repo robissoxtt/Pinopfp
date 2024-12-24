@@ -1,99 +1,130 @@
+/* =========================
+   Typography Styles
+   ========================= */
 h1 {
-  
-  color: rgb(0, 0, 0); 
+  color: rgb(0, 0, 0);
   border-radius: 8px;
   display: center;
   position: relative;
   justify-content: center;
   margin: 0;
   font-size: clamp(10px, 8vw, 100px); /* Adapta entre 36px e 107px */
-      
 }
-
-h3 {
-  font-size: clamp(13px, 8vw, 20px); /* Adapta entre 36px e 107px */
-  
-}
-
 
 h2 {
   font-size: clamp(13px, 8vw, 30px); /* Aumenta o tamanho das categorias */
 }
 
+h3 {
+  font-size: clamp(13px, 8vw, 20px); /* Adapta entre 36px e 107px */
+}
 
-
+/* =========================
+   Body and Container Styles
+   ========================= */
 body {
   margin: 0; /* Remove margem padrão */
   padding: 0; /* Remove padding padrão */
   background: url('your-animation.gif') no-repeat center center fixed;
   background-size: cover; /* Faz o GIF preencher toda a tela */
+  background-color: #f7ca16;
   font-family: "Bangers", serif;
   font-weight: 440;
+  font-size: 12px;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-   
-  background-color: #f7ca16;
-  font-size: 12px;
 }
 
 .container {
   text-align: center;
   justify-content: center;
   overflow: hidden;
-  
 }
 
+/* =========================
+   Avatar Display Styles
+   ========================= */
 .avatar-display {
-  
-  width: 250px;
-  height: 250px;
+  width: 100%;                  /* Full width of the container */
+  max-width: 500px;            /* Limit the width to 1500px */
+  height: auto;                 /* Height adjusts automatically based on content */
+  aspect-ratio: 1 / 1;          /* Maintain a 3:1 aspect ratio (e.g., 1500x500) */
   display: flex;
-  justify-content: center;
+  justify-content: center;    /* Align avatar to the right */
   border-radius: 14px;
-  margin:  auto;
+  margin: auto;
   position: relative;
-  overflow: hidden;
-  
+  overflow: hidden;             /* Clip any overflow */
 }
 
+
+/* =========================
+   Background Layer Styles
+   ========================= */
 #background-layer {
   position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 0; /* Backgrounds at the back */
+  top: 0;
+  left: 0;
+  width: 100%;                  /* Full width of the container */
+  height: 100%;                 /* Full height of the container */
+  object-fit: cover;            /* Cover the container while maintaining aspect ratio */
+  z-index: 0;                   /* Background stays at the back */
 }
 
+
+
+/* Avatar and layer adjustments */
 #avatar-image, .layer {
-   margin: 0 auto; /* Centraliza o contêiner na tela */
-   overflow: hidden; /* Garante que o conteúdo extra não "vaze" */
+  margin: 0 auto;
   position: absolute;
   width: 100%;
   height: 100%;
   object-fit: contain;
-  z-index: 1; /* Default for avatar and accessories */
+  z-index: 3;
 }
+
 
 .layer {
   z-index: 2; /* For other layers, you can adjust later */
 }
 
+/* Set the image of based-option buttons to layer 0 */
+.options.based button img {
+  z-index: -2;
+}
+.options.cores button img {
+  z-index: -2;
+}
+/* =========================
+   Sliders Container Styles
+   ========================= */
+.slider-container {
+  margin: 20px auto;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* =========================
+   Options and Buttons Styles
+   ========================= */
 .options {
-  margin:  auto;
+  margin: auto;
   display: flex;
   justify-content: center;
-  gap: 1px;
   
-  
+  align-items: center;
+  gap: 13px;
+  flex-wrap: nowrap; /* Impede que os itens quebrem linha */
+  transition: transform 0.3s ease; /* Transição suave ao deslizar */
 }
 
 .options button {
-  
-  
   width: 100px;
   height: 100px;
-  border: 3px solid #ddd;
+  border: 2px solid #de9b00;
   margin: -5px;
   position: relative;
   cursor: pointer;
@@ -101,12 +132,11 @@ body {
   background-size: cover;
   background-position: center;
   overflow: hidden; /* Garante que nada fora do botão apareça */
-   border-radius: 15px;
+  border-radius: 15px;
   background-color: transparent;
 }
 
 .options button img {
-  
   width: 100%;
   height: 100%;
   object-fit: cover; /* Acessório ocupa toda a área */
@@ -116,18 +146,10 @@ body {
   z-index: 2; /* Garante que o acessório fique acima do fundo */
 }
 
-
-.options {
-  align-items: center;
-  gap: 13px;
-  flex-wrap: nowrap; /* Impede que os itens quebrem linha */
-  transition: transform 0.3s ease; /* Transição suave ao deslizar */
-  
-}
-
-
-.slider  {
-  
+/* =========================
+   Slider Styles
+   ========================= */
+.slider {
   display: flex;
   overflow-x: auto; /* Permite rolagem horizontal */
   gap: 1px; /* Espaçamento entre os botões */
@@ -136,7 +158,6 @@ body {
 }
 
 .slider::-webkit-scrollbar {
-  
   height: 14px; /* Aumenta a altura do scrollbar */
 }
 
@@ -155,28 +176,16 @@ body {
   background-color: rgba(8, 103, 5, 0.63); /* Cor mais escura ao passar o mouse */
 }
 
-
-
-.options {
-  display: flex;
-  gap: 15px;
-  flex-wrap: nowrap; /* Impede que os itens quebrem linha */
-}
-
-button.prev {
-  background-color: transparent; /* Fundo transparente */
-  border: none; /* Remove borda */
-  color: transparent; /* Remove texto ou ícone */
-  pointer-events: auto; /* Mantém funcionalidade */
-}
-button.next {
+button.prev, button.next {
   background-color: transparent; /* Fundo transparente */
   border: none; /* Remove borda */
   color: transparent; /* Remove texto ou ícone */
   pointer-events: auto; /* Mantém funcionalidade */
 }
 
-
+/* =========================
+   Buttons Container Styles
+   ========================= */
 #buttons-container {
   justify-content: center; /* Centraliza os botões dentro do contêiner */
   gap: 15px; /* Espaçamento entre os botões */
@@ -207,6 +216,9 @@ button.next {
   color: #fff; /* Cor do texto em branco */
 }
 
+/* =========================
+   Footer Styles
+   ========================= */
 footer {
   background-color: #ff6300;
   color: #fff;
