@@ -71,9 +71,9 @@ const layerZIndex = {
     cores: 2,
     based: 1,
     clothes: 5,
-    mouth: 6,
+    mouth: 7,
     glasses: 3,
-    hats: 7,
+    hats: 6,
     front: 8,
 };
 
