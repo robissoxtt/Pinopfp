@@ -191,25 +191,6 @@ Object.keys(accessories).forEach(category => {
 });
 
 
-generateBtn.addEventListener('click', () => {
-    clearLayersExceptBackgroundAndWatermark();
-    ensureWatermarkLayer();
-
-    Object.keys(accessories).forEach(category => {
-        const items = accessories[category]; // Obtem os itens da categoria
-        const probability = categoryProbabilities[category] || 1; // Padrão 100% de chance
-
-        // Verifica se deve incluir a categoria com base na probabilidade
-        if (Math.random() <= probability && items.length > 0) {
-            // Escolhe um item aleatório da categoria
-            const randomItem = items[Math.floor(Math.random() * items.length)];
-            addOrReplaceCategoryImage(`${category}-layer`, `images/${category}/${randomItem}`);
-        } else {
-            console.log(`Categoria "${category}" não incluída devido à probabilidade.`);
-        }
-    });
-});
-
 downloadBtn.addEventListener('click', async () => {
     const clone = avatarDisplay.cloneNode(true);
     clone.style.position = 'absolute';
@@ -260,6 +241,12 @@ downloadBtn.addEventListener('click', async () => {
 
 // Ensure defaults on load
 window.addEventListener('load', () => {
+    setDefaultAvatar();
+    ensureWatermarkLayer();
+});
+
+// Reset to default on button click
+defaultBtn.addEventListener('click', () => {
     setDefaultAvatar();
     ensureWatermarkLayer();
 });
