@@ -18,12 +18,14 @@ const accessories = {
           'front (9).png', 'front (10).png', 'front (11).png', 'front (12).png'],
   
   hats: ['hat (2).png', 'hat (3).png', 'hat (4).png', 'hat (5).png', 
-         'hat (6).png', 'hat (7).png','hat (8).png', 'hat (9).png',
-         'hat (10).png','hat (11).png','hat (12).png', 'hat (13).png', 
+         'hat (6).png', 'hat (7).png', 'hat (8).png', 'hat (9).png',
+         'hat (10).png', 'hat (11).png', 'hat (12).png', 'hat (13).png', 
          'hat (14).png', 'hat (15).png', 'hat (16).png', 'hat (17).png', 
          'hat (18).png', 'hat (19).png', 'hat (20).png', 'hat (21).png', 
          'hat (22).png', 'hat (23).png', 'hat (24).png', 'hat (25).png', 
-         'hat (26).png', 'hat (27).png','hat (28).png', 'hat (29).png'],
+         'hat (26).png', 'hat (27).png', 'hat (28).png', 'hat (29).png', 
+         'hat (30).png', 'hat (31).png', 'hat (32).png', 'hat (33).png',
+         'hat (34).png', 'hat (35).png', 'hat (36).png'],
   
   glasses: [ 'glasses (2).png', 'glasses (3).png', 'glasses (4).png', 
             'glasses (5).png', 'glasses (6).png', 'glasses (7).png', 'glasses (8).png', 
