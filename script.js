@@ -11,7 +11,7 @@ avatarImage.onerror = function () {
     avatarImage.src = 'images/default/fallback_image.png';
 };
 
-// Inicializa as opções de acessórios
+// Accessories
 const accessories = {
   front: ['front (2).png', 'front (4).png', 'front (5).png', 
           'front (6).png', 'front (7).png', 'front (8).png', 
