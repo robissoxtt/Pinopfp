@@ -25,13 +25,13 @@ const accessories = {
          'hat (22).png', 'hat (23).png', 'hat (24).png', 'hat (25).png', 
          'hat (26).png', 'hat (27).png', 'hat (28).png', 'hat (29).png', 
          'hat (30).png', 'hat (31).png', 'hat (32).png', 'hat (33).png',
-         'hat (34).png', 'hat (35).png', 'hat (36).png'],
+         'hat (34).png', 'hat (35).png', 'hat (36).png', 'hat (37).png'],
   
   glasses: [ 'glasses (2).png', 'glasses (3).png', 'glasses (4).png', 
             'glasses (5).png', 'glasses (6).png', 'glasses (7).png', 'glasses (8).png', 
             'glasses (9).png', 'glasses (10).png', 'glasses (11).png', 'glasses (12).png', 
             'glasses (13).png', 'glasses (14).png', 'glasses (15).png', 'glasses (16).png', 
-            'glasses (17).png'],
+            'glasses (17).png','glasses (18).png'],
   
   clothes: [ 'clothes (2).png', 'clothes (3).png', 'clothes (4).png', 
             'clothes (5).png', 'clothes (6).png', 'clothes (7).png', 'clothes (8).png', 
@@ -42,7 +42,7 @@ const accessories = {
             'clothes (25).png','clothes (26).png','clothes (27).png','clothes (28).png',
             'clothes (29).png','clothes (30).png','clothes (31).png','clothes (32).png',
             'clothes (33).png','clothes (34).png','clothes (35).png','clothes (36).png',
-            'clothes (37).png'],
+            'clothes (37).png','clothes (38).png'],
   
   mouth: [ 'mouth (2).png', 'mouth (3).png', 'mouth (4).png', 'mouth (5).png', 
           'mouth (6).png', 'mouth (7).png'],
@@ -56,9 +56,9 @@ const accessories = {
           'aesthetic (9).png', 'aesthetic (10).png', 'aesthetic (11).png', 'aesthetic (12).png', 
           'aesthetic (13).png', 'aesthetic (14).png', 'aesthetic (15).png', 'aesthetic (16).png', 
           'aesthetic (17).png', 'aesthetic (18).png', 'aesthetic (19).png', 'aesthetic (20).png',
-         'aesthetic (21).png','aesthetic (22).png']
+         'aesthetic (21).png','aesthetic (22).png','aesthetic (23).png']
 };
-
+ 
 const categoryProbabilities = {
     front: 0.8,        // Always include (100% chance)
     hats: 0.8,       // 70% chance to include
