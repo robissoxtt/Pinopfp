@@ -25,7 +25,7 @@ const accessories = {
          'hat (22).png', 'hat (23).png', 'hat (24).png', 'hat (25).png', 
          'hat (26).png', 'hat (27).png', 'hat (28).png', 'hat (29).png', 
          'hat (30).png', 'hat (31).png', 'hat (32).png', 'hat (33).png',
-         'hat (34).png', 'hat (35).png', 'hat (36).png', 'hat (37).png', 'hat (38).png'],
+         'hat (34).png', 'hat (35).png', 'hat (36).png', 'hat (37).png', 'hat (38).png', 'hat (39).png'],
   
   glasses: [ 'glasses (2).png', 'glasses (3).png', 'glasses (4).png', 
             'glasses (5).png', 'glasses (6).png', 'glasses (7).png', 'glasses (8).png', 
@@ -41,8 +41,7 @@ const accessories = {
             'clothes (21).png','clothes (22).png','clothes (23).png','clothes (24).png',
             'clothes (25).png','clothes (26).png','clothes (27).png','clothes (28).png',
             'clothes (29).png','clothes (30).png','clothes (31).png','clothes (32).png',
-            'clothes (33).png','clothes (34).png','clothes (35).png','clothes (36).png',
-            'clothes (37).png','clothes (38).png','clothes (39).png'],
+            'clothes (33).png','clothes (34).png','clothes (35).png','clothes (36).png',],
   
   mouth: [ 'mouth (2).png', 'mouth (3).png', 'mouth (4).png', 'mouth (5).png', 
           'mouth (6).png', 'mouth (7).png'],
@@ -74,10 +73,10 @@ const layerZIndex = {
     background: -3,
     cores: 2,
     based: 1,
-    clothes: 5,
+    clothes: 6,
     mouth: 7,
     glasses: 3,
-    hats: 6,
+    hats: 5,
     front: 8,
 };
 
