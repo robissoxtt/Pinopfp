@@ -55,7 +55,7 @@ const accessories = {
           'aesthetic (9).png', 'aesthetic (10).png', 'aesthetic (11).png', 'aesthetic (12).png', 
           'aesthetic (13).png', 'aesthetic (14).png', 'aesthetic (15).png', 'aesthetic (16).png', 
           'aesthetic (17).png', 'aesthetic (18).png', 'aesthetic (19).png', 'aesthetic (20).png',
-         'aesthetic (21).png','aesthetic (22).png','aesthetic (23).png']
+         'aesthetic (21).png','aesthetic (22).png','aesthetic (23).png','aesthetic (24).png','aesthetic (25).png']
 };
  
 const categoryProbabilities = {
